@@ -1,0 +1,74 @@
+* {
+  box-sizing: border-box;
+  font-family: "Spoqa Han Sans Neo", "sans-serif" !important;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+svg {
+  display: block;
+}
+
+ul,
+li {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+h5 {
+  font-size: 18px;
+  font-weight: 500;
+  margin: 0;
+}
+
+p {
+  font-size: 16px;
+  padding: 0;
+  margin: 0;
+}
+
+label {
+  font-size: 12px;
+  color: #333;
+}
+
+small {
+  font-size: 12px;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+  font-size: inherit;
+}
+
+button:disabled {
+  background: #f7f7f7;
+  color: #8b8b8b;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+.MuiButton-text {
+  flex: 1;
+  font-size: 16px !important;
+  font-weight: 400 !important;
+  text-transform: none !important;
+}
+
+.MuiButton-text.active {
+  background: #007cba !important;
+  color: #fff !important;
+}

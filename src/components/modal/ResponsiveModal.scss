@@ -1,0 +1,22 @@
+.react-responsive-modal-modal {
+  max-width: 100%;
+  width: 100%;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 0;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  position: absolute;
+  margin: 0;
+
+  @media (min-width: 768px) {
+    width: 500px;
+    position: static;
+    border-radius: 20px;
+  }
+}
+
+.react-responsive-modal-closeButton {
+  display: none;
+}

@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30">
+    <defs>
+        <style>
+            .cls-3{fill:none;stroke:#007cba;stroke-linecap:round;stroke-linejoin:round;stroke-width:2px}
+        </style>
+    </defs>
+    <g id="icon-close" transform="translate(-335 -54)">
+        <rect id="Rectangle_36" data-name="Rectangle 36" width="30" height="30" rx="10" transform="translate(335 54)" style="fill:#e5f2f8"/>
+        <g id="x-light" transform="translate(340 59)">
+            <path id="Rectangle_1553" data-name="Rectangle 1553" style="fill:none" d="M0 0h20v20H0z"/>
+            <path id="Line_16" data-name="Line 16" class="cls-3" transform="translate(4.375 4.375)" d="M11.25 0 0 11.25"/>
+            <path id="Line_17" data-name="Line 17" class="cls-3" transform="translate(4.375 4.375)" d="M11.25 11.25 0 0"/>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,10 @@
+<svg id="icon-gnb-4" xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30">
+    <defs>
+        <style>
+            .cls-2{fill:none;stroke:#b1cad6;stroke-linecap:round;stroke-linejoin:round;stroke-width:2px}
+        </style>
+    </defs>
+    <path id="Rectangle_46" data-name="Rectangle 46" style="fill:none" d="M0 0h30v30H0z"/>
+    <circle id="Ellipse_2" data-name="Ellipse 2" class="cls-2" cx="7.5" cy="7.5" r="7.5" transform="translate(7.5 3.75)"/>
+    <path id="Path_13" data-name="Path 13" class="cls-2" d="M30.989 166.561a13.129 13.129 0 0 1 22.737 0" transform="translate(-27.357 -141.25)"/>
+</svg>

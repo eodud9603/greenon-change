@@ -1,0 +1,14 @@
+<svg id="icon-mypage-2" xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40">
+    <defs>
+        <style>
+            .cls-4{fill:none;stroke:#007cba;stroke-linecap:round;stroke-linejoin:round;stroke-width:2px}
+        </style>
+    </defs>
+    <path id="Rectangle_1562" data-name="Rectangle 1562" style="fill:none" d="M0 0h40v40H0z"/>
+    <g id="Group_3087" data-name="Group 3087" transform="translate(5.625 11.971)" style="opacity:.2">
+        <path id="Path_39" data-name="Path 39" d="M36.172 76.616a1.249 1.249 0 0 0-.172.633V92.04a1.25 1.25 0 0 0 .635 1.088l13.125 7.418a1.249 1.249 0 0 0 .615.162l.166-16.064-14.369-8.028z" transform="translate(-36 -76.616)" style="fill:#b1cad6"/>
+    </g>
+    <path id="Line_31" data-name="Line 31" class="cls-4" transform="translate(20 20)" d="M.166 0 0 16.064"/>
+    <path id="Path_40" data-name="Path 40" class="cls-4" d="M64.75 48.649V33.858a1.25 1.25 0 0 0-.635-1.088L50.99 25.351a1.25 1.25 0 0 0-1.23 0L36.635 32.77A1.25 1.25 0 0 0 36 33.858v14.791a1.25 1.25 0 0 0 .635 1.088l13.125 7.419a1.25 1.25 0 0 0 1.23 0l13.125-7.418a1.25 1.25 0 0 0 .635-1.089z" transform="translate(-30.375 -21.254)"/>
+    <path id="Path_41" data-name="Path 41" class="cls-4" d="m65.509 76.618-14.037 8.027L37.1 76.616" transform="translate(-31.306 -64.645)"/>
+</svg>

@@ -1,0 +1,17 @@
+<svg id="icon-weather-sunny" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+    <defs>
+        <style>
+            .cls-2{fill:none;stroke:#fff;stroke-linecap:round;stroke-linejoin:round}
+        </style>
+    </defs>
+    <path id="Rectangle_3" data-name="Rectangle 3" style="fill:none" d="M0 0h16v16H0z"/>
+    <circle id="Ellipse_1" data-name="Ellipse 1" class="cls-2" cx="3.75" cy="3.75" r="3.75" transform="translate(4.25 4.25)"/>
+    <path id="Line_1" data-name="Line 1" class="cls-2" transform="translate(8 1)" d="M0 1.25V0"/>
+    <path id="Line_2" data-name="Line 2" class="cls-2" transform="translate(3.05 3.05)" d="M.884.884 0 0"/>
+    <path id="Line_3" data-name="Line 3" class="cls-2" transform="translate(1 8)" d="M1.25 0H0"/>
+    <path id="Line_4" data-name="Line 4" class="cls-2" transform="translate(3.05 12.066)" d="M.884 0 0 .884"/>
+    <path id="Line_5" data-name="Line 5" class="cls-2" transform="translate(8 13.75)" d="M0 0v1.25"/>
+    <path id="Line_6" data-name="Line 6" class="cls-2" transform="translate(12.066 12.066)" d="m0 0 .884.884"/>
+    <path id="Line_7" data-name="Line 7" class="cls-2" transform="translate(13.75 8)" d="M0 0h1.25"/>
+    <path id="Line_8" data-name="Line 8" class="cls-2" transform="translate(12.066 3.05)" d="M0 .884.884 0"/>
+</svg>

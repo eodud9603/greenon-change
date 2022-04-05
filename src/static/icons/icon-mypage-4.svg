@@ -1,0 +1,11 @@
+<svg id="icon-mypage-4" xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40">
+    <defs>
+        <style>
+            .cls-3{fill:none;stroke:#007cba;stroke-linecap:round;stroke-linejoin:round;stroke-width:2px}
+        </style>
+    </defs>
+    <path id="Rectangle_1558" data-name="Rectangle 1558" style="fill:none" d="M0 0h40v40H0z"/>
+    <path id="Path_29" data-name="Path 29" d="M55.25 56h-10a5 5 0 0 0-5 5 5 5 0 0 0-5-5h-10A1.25 1.25 0 0 0 24 57.25v20a1.25 1.25 0 0 0 1.25 1.25h10a5 5 0 0 1 5 5 5 5 0 0 1 5-5h10a1.25 1.25 0 0 0 1.25-1.25v-20A1.25 1.25 0 0 0 55.25 56z" transform="translate(-20.25 -47.25)" style="fill:#b1cad6;opacity:.2"/>
+    <path id="Path_30" data-name="Path 30" class="cls-3" d="M128 61a5 5 0 0 1 5-5h10a1.25 1.25 0 0 1 1.25 1.25v20A1.25 1.25 0 0 1 143 78.5h-10a5 5 0 0 0-5 5" transform="translate(-108 -47.25)"/>
+    <path id="Path_31" data-name="Path 31" class="cls-3" d="M24 77.25a1.25 1.25 0 0 0 1.25 1.25h10a5 5 0 0 1 5 5V61a5 5 0 0 0-5-5h-10A1.25 1.25 0 0 0 24 57.25z" transform="translate(-20.25 -47.25)"/>
+</svg>

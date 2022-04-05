@@ -1,0 +1,19 @@
+<svg id="icon-modifyprofile" xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30">
+    <defs>
+        <style>
+            .cls-4{fill:none;stroke:#007cba;stroke-width:2px;stroke-linecap:round;stroke-linejoin:round}
+        </style>
+    </defs>
+    <path id="Rectangle_1561" data-name="Rectangle 1561" style="fill:none" d="M0 0h30v30H0z"/>
+    <path id="Path_36" data-name="Path 36" d="M52.308 36.576a1.871 1.871 0 0 1-2.389-2.389 11.25 11.25 0 0 0-14.193 17.424A8.437 8.437 0 0 1 43.249 47a4.688 4.688 0 1 1 4.688-4.687A4.687 4.687 0 0 1 43.249 47a8.437 8.437 0 0 1 7.524 4.614 11.25 11.25 0 0 0 1.535-15.038z" transform="translate(-28.249 -28.247)" style="fill:#e5f2f8;opacity:.2"/>
+    <circle id="Ellipse_14" data-name="Ellipse 14" cx="4.688" cy="4.688" r="4.688" transform="translate(10.313 9.375)" style="stroke-miterlimit:10;stroke:#007cba;stroke-width:2px;fill:none"/>
+    <path id="Path_37" data-name="Path 37" class="cls-4" d="M63.8 164.614a8.441 8.441 0 0 1 15.047 0" transform="translate(-56.323 -141.25)"/>
+    <path id="Path_38" data-name="Path 38" class="cls-4" d="M54.517 41.37a11.238 11.238 0 1 1-9.217-9.219" transform="translate(-28.423 -28.245)"/>
+    <circle id="Ellipse_15" data-name="Ellipse 15" class="cls-4" cx="1.875" cy="1.875" r="1.875" transform="translate(21.563 4.688)"/>
+    <path id="Line_25" data-name="Line 25" class="cls-4" transform="translate(23.438 3.281)" d="M0 1.406V0"/>
+    <path id="Line_26" data-name="Line 26" class="cls-4" transform="translate(20.596 4.922)" d="M1.218.703 0 0"/>
+    <path id="Line_27" data-name="Line 27" class="cls-4" transform="translate(20.596 7.5)" d="M1.218 0 0 .703"/>
+    <path id="Line_28" data-name="Line 28" class="cls-4" transform="translate(23.438 8.438)" d="M0 0v1.406"/>
+    <path id="Line_29" data-name="Line 29" class="cls-4" transform="translate(25.061 7.5)" d="m0 0 1.218.703"/>
+    <path id="Line_30" data-name="Line 30" class="cls-4" transform="translate(25.061 4.922)" d="M0 .703 1.218 0"/>
+</svg>

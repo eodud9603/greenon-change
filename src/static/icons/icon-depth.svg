@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+    <defs>
+        <style>
+            .cls-2{fill:none;stroke:#b1cad6;stroke-linecap:round;stroke-linejoin:round;stroke-width:2px}
+        </style>
+    </defs>
+    <g id="icon-depth" transform="rotate(90 12 12)">
+        <path id="Rectangle_1567" data-name="Rectangle 1567" style="fill:none" d="M0 0h24v24H0z"/>
+        <path id="Line_32" data-name="Line 32" class="cls-2" transform="translate(12 3.75)" d="M0 16.5V0"/>
+        <path id="Path_44" data-name="Path 44" class="cls-2" d="M56 46.75 62.75 40l6.75 6.75" transform="translate(-50.75 -36.25)"/>
+    </g>
+</svg>

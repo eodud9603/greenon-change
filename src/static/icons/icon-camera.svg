@@ -1,0 +1,11 @@
+<svg id="icon-camera" xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30">
+    <defs>
+        <style>
+            .cls-3{fill:none;stroke:#007cba;stroke-linecap:round;stroke-linejoin:round;stroke-width:2px}
+        </style>
+    </defs>
+    <path id="Rectangle_1566" data-name="Rectangle 1566" style="fill:none" d="M0 0h30v30H0z"/>
+    <path id="Path_42" data-name="Path 42" d="M52.625 42.813h-3.751L47 40h-7.5l-1.875 2.813h-3.75A1.875 1.875 0 0 0 32 44.688v13.125a1.875 1.875 0 0 0 1.875 1.875h18.75a1.875 1.875 0 0 0 1.875-1.875V44.688a1.875 1.875 0 0 0-1.875-1.875zM43.25 55a4.219 4.219 0 1 1 4.219-4.219A4.219 4.219 0 0 1 43.25 55z" transform="translate(-28.25 -35.313)" style="fill:#fff;opacity:.2"/>
+    <path id="Path_43" data-name="Path 43" class="cls-3" d="M52.625 59.688h-18.75A1.875 1.875 0 0 1 32 57.813V44.688a1.875 1.875 0 0 1 1.875-1.875h3.749L39.5 40H47l1.875 2.813h3.751a1.875 1.875 0 0 1 1.874 1.875v13.125a1.875 1.875 0 0 1-1.875 1.875z" transform="translate(-28.25 -35.313)"/>
+    <circle id="Ellipse_16" data-name="Ellipse 16" class="cls-3" cx="4.219" cy="4.219" r="4.219" transform="translate(10.781 11.25)"/>
+</svg>

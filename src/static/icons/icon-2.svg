@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30">
+    <defs>
+        <style>
+            .cls-3{fill:none;stroke:#00c4ff;stroke-miterlimit:10;stroke-linecap:round}
+        </style>
+    </defs>
+    <g id="icon-2" transform="translate(-22 -398)">
+        <circle id="Ellipse_11" data-name="Ellipse 11" cx="15" cy="15" r="15" transform="translate(22 398)" style="fill:#00c4ff;opacity:.1"/>
+        <g id="Group_3079" data-name="Group 3079" transform="translate(778.56 523)">
+            <path id="Path_17" data-name="Path 17" d="M-739.32-108.274v-9.486a2.24 2.24 0 0 0-2.24-2.24 2.24 2.24 0 0 0-2.24 2.24v9.486a4.438 4.438 0 0 0-2.2 3.834 4.44 4.44 0 0 0 4.44 4.44 4.44 4.44 0 0 0 4.44-4.44 4.438 4.438 0 0 0-2.2-3.834z" style="fill:none;stroke:#00c4ff;stroke-miterlimit:10"/>
+            <path id="Path_18" data-name="Path 18" class="cls-3" d="M-634.026 260a2.974 2.974 0 0 1-2.974 2.974" transform="translate(-104.56 -364.521)"/>
+            <path id="Line_13" data-name="Line 13" class="cls-3" transform="translate(-741.071 -116.497)" d="M1.752 0H0"/>
+            <path id="Line_14" data-name="Line 14" class="cls-3" transform="translate(-741.071 -114.501)" d="M1.752 0H0"/>
+            <path id="Line_15" data-name="Line 15" class="cls-3" transform="translate(-741.071 -112.505)" d="M1.752 0H0"/>
+        </g>
+    </g>
+</svg>
