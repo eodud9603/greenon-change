@@ -7,6 +7,7 @@ export type UserType = {
    id: number;
    email?: string;
    name?: string;
+   phone?: string;
    isAdmin: boolean;
    loginType?: string;
 };

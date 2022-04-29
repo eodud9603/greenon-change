@@ -9,6 +9,7 @@ import { useRecoilState, useRecoilValue } from 'recoil';
 // import { useObserver } from "mobx-react";
 import DeviceState from "../recoil/device";
 import ModalState from "../recoil/modal";
+import useReactNativeWebView from "../hooks/useReactNativeWebView";
 
 const Box = styled.div`
   padding: 20px;
@@ -50,12 +51,13 @@ const ManageContainer = () => {
   const [modal, setModal] = useRecoilState(ModalState);
   const deviceList = useRecoilValue(DeviceState);
   // const { device, modal } = useStore();
+  const { sendMessage } = useReactNativeWebView();
 
   return /* useObserver(() =>  */(
     <>
       <Box>
         <GridWrapper>
-          <AddButton onClick={() => setModal({ ...modal, type: 'addDevice', visible: true })}>
+          <AddButton onClick={() => sendMessage({ type: 'DeviceRegister' })} /* onClick={() => setModal({ ...modal, type: 'addDevice', visible: true })} */>
             <AddIcon />
             <p>신규 제품 추가</p>
             <div />

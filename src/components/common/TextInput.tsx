@@ -11,6 +11,8 @@ interface TextInputProps {
   onChange?: (e: any) => void;
   value?: any;
   error?: string;
+  disabled?: boolean;
+  defaultValue?: string | number | readonly string[]
 }
 
 const InputBox = styled.div<{ background?: string }>`
@@ -46,11 +48,13 @@ const TextInput: React.FC<TextInputProps> = ({
   onChange,
   value,
   error,
+  disabled = false,
+  defaultValue
 }) => {
   return (
     <InputTemplate label={label}>
       <InputBox background={background}>
-        <Input name={name} type={type} onChange={onChange} value={value} autoComplete="off" />
+        <Input defaultValue={defaultValue} disabled={disabled} name={name} type={type} onChange={onChange} value={value} autoComplete="off" />
         {right}
       </InputBox>
       <div style={{ fontSize: 14, color: "red" }}>{error}</div>

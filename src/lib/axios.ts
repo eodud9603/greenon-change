@@ -6,14 +6,12 @@ export const instance = axios.create({
 });
 
 export const apis = {
-  login: async (email: string, password: string) =>
-    instance.post("/auth/signin", { email, password }),
-  register: async (email: string, password: string, phone:string) =>
-    instance.post("/auth/signup", { email, password, phone }),
-  SignInWithKakao: async (id:string) =>
-    instance.post("/auth/signin/kakao", { id }),
-  signupWithKakao: async (payload:{ id:string, nickname:string, email:string|null }) =>
-    instance.post("/auth/signup/kakao", payload),
+  login: (email: string, password: string) => instance.post("/auth/signin", { email, password }),
+  register: (email: string, password: string, phone:string) => instance.post("/auth/signup", { email, password, phone }),
+  SignInWithKakao: (id:string) => instance.post("/auth/signin/kakao", { id }),
+  signupWithKakao: (payload:{ id:string, nickname:string, email:string|null }) => instance.post("/auth/signup/kakao", payload),
+  verifyPassword: (userId:number, password:string) => instance.post(`/auth/${userId}/verify-password`, { password }),
+  updateUserInfo: (userId:number, payload: { phone?: string, password?: string }) => instance.patch(`/auth/${userId}/update`, payload),
 
   // getUserInfo: async () =>
   //   instance.get("/users/detail", {

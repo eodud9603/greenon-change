@@ -47,7 +47,8 @@ const Login = () => {
             id: data.user.id,
             isAdmin: data.isAdmin,
             email: input.email,
-            name: data.name || ''
+            name: data.user.name || '',
+            phone: data.user.phone || ''
           });
           navigate("/", { replace: true });
         } else {

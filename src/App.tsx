@@ -37,6 +37,7 @@ import DeviceState, { DeviceCurrentStatusState } from "./recoil/device";
 import AppState from "./recoil/app";
 import KakaoCallback from "./pages/KakaoCallback";
 import axios from "axios";
+import useReactNativeWebView from "./hooks/useReactNativeWebView";
 
 declare global {
   interface Window {
@@ -54,6 +55,7 @@ function App() {
   const user = useRecoilValue(UserState);
   const navigate = useNavigate();
   const location = useLocation();
+  const { sendMessage } = useReactNativeWebView();
 
   /* useEffect(() => {
     if ('geolocation' in navigator) {
@@ -74,6 +76,7 @@ function App() {
     }
   }, []); */
 
+  // RN -> 웹뷰 통신
   useEffect(() => {
     if (window.isRNWebView && window.RNPlatform) {
       if (window.RNPlatform === 'android') {
@@ -115,6 +118,7 @@ function App() {
         setDeviceList(data);
         setLoadState(true);
       });
+      sendMessage({ type: 'UserInfo', data: { userId: user.id } });
     } else {
       if (location.pathname !== '/auth/kakao/callback')
         navigate('/login', { replace: true });
@@ -126,7 +130,7 @@ function App() {
       const updateData = () => {
         // if (user && deviceList.length) {
           apis.getDeviceCurrentStatus(user.id).then(({ data }) => {
-            console.log(data);
+            // console.log(data);
             setDeviceCurrentStatus(data);
           });
           apis.getDeviceConfigs(user.id).then(({ data }) => {

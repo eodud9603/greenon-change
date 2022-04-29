@@ -8,6 +8,7 @@ import { AddDevice } from "../modal";
 import { useRecoilValue, useSetRecoilState } from 'recoil';
 import { apis } from "../../lib/axios";
 import AppState from "../../recoil/app";
+import useReactNativeWebView from "../../hooks/useReactNativeWebView";
 
 const SiderBox = styled.div`
   width: 300px;
@@ -59,8 +60,13 @@ const Button = styled.button`
 `;
 
 const Sider = () => {
+  const { sendMessage } = useReactNativeWebView();
   const app = useRecoilValue(AppState);
   const setModal = useSetRecoilState(ModalState);
+
+  const handleClickDeviceRegister = () => {
+    sendMessage({ type: 'RegisterDevice' });
+  }
 
   return (
     <SiderBox>
@@ -81,7 +87,8 @@ const Sider = () => {
       <ButtonGroup>
         <Button
           style={{ color: "#007ba8" }}
-          onClick={() => setModal({ visible: true, type: 'addDevice', targetDeviceId: '' })}
+          // onClick={() => setModal({ visible: true, type: 'addDevice', targetDeviceId: '' })}
+          onClick={handleClickDeviceRegister}
         >
           제품 추가
         </Button>

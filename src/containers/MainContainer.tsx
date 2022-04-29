@@ -10,6 +10,7 @@ import { useRecoilState, useRecoilValue } from 'recoil';
 import AppState from "../recoil/app";
 import ModalState from "../recoil/modal";
 import AddIcon from '../static/icons/icon-add-dark.svg';
+import useReactNativeWebView from "../hooks/useReactNativeWebView";
 
 const Box = styled.div`
   padding: 20px;
@@ -66,9 +67,12 @@ const Button = styled.a`
 `;
 
 const MainContainer = () => {
+  const { sendMessage } = useReactNativeWebView();
+
   const { loading } = useRecoilValue(AppState);
   const deviceList = useRecoilValue(DeviceState);
   const [modal, setModal] = useRecoilState(ModalState);
+  
 
   return (
     <>
@@ -84,7 +88,7 @@ const MainContainer = () => {
               등록된 제품이 없습니다!<br/>
               제품을 추가해주세요
             </NoDeviceText>
-            <Button onClick={() => setModal({ ...modal, type: 'addDevice', visible: true })}>
+            <Button onClick={() => sendMessage({ type: 'DeviceRegister' })} /* onClick={() => setModal({ ...modal, type: 'addDevice', visible: true })} */>
               <img src={AddIcon} />
               신규 제품 추가
             </Button>

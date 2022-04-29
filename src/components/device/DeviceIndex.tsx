@@ -74,7 +74,7 @@ const DeviceIndex = ({ data }: { data: DeviceStatusType }) => {
           <Icon3 />
           <InlineCol>
             <label style={{ color: "#8b8b8b" }}>습도</label>
-            <p style={{ fontSize: 14 }}>{data.humidity * 100}%</p>
+            <p style={{ fontSize: 14 }}>{data.humidity}%</p>
           </InlineCol>
         </InlineRow>
       </Row>
