@@ -26,7 +26,8 @@ const Container = styled.div`
   padding: 5px;
   border: 1px solid #e5f2f8;
   border-radius: 5px;
-  gap: 10px;
+  /* gap: 10px; */
+  margin-bottom: 20px;
 `;
 
 const Switch = styled(Link)<{ active: Boolean }>`

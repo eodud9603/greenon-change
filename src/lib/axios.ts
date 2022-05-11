@@ -66,5 +66,7 @@ export const apis = {
     }),
   getNotices: () => instance.get("/notice"),
   sendVerifyCode: (phone:string) => instance.post(`/auth/sms/send-code`, { phone }),
-  verifyCode: (phone:string, code:string) => instance.post(`/auth/sms/verify-code`, { phone, code })
+  verifyCode: (phone:string, code:string) => instance.post(`/auth/sms/verify-code`, { phone, code }),
+  findEmail: (phone:string) => instance.post('/auth/find-email', { phone }),
+  changePassword: (email:string, password:string) => instance.post('/auth/change-password', { email, password }),
 };
