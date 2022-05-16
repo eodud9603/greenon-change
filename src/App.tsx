@@ -55,7 +55,7 @@ function App() {
   const user = useRecoilValue(UserState);
   const navigate = useNavigate();
   const location = useLocation();
-  const { sendMessage } = useReactNativeWebView();
+  const { isRNWebView, sendMessage } = useReactNativeWebView();
 
   /* useEffect(() => {
     if ('geolocation' in navigator) {
@@ -118,7 +118,10 @@ function App() {
         setDeviceList(data);
         setLoadState(true);
       });
-      sendMessage({ type: 'UserInfo', data: { userId: user.id } });
+      
+      if (isRNWebView) {
+        sendMessage({ type: 'UserInfo', data: { userId: user.id } });
+      }
     } else {
       if (location.pathname !== '/auth/kakao/callback')
         navigate('/login', { replace: true });

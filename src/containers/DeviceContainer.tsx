@@ -74,7 +74,7 @@ const DeviceContainer = () => {
   const deviceStatusData = useMemo(() => {
     if (Object.keys(deviceStatusList).includes(id)) {
       return deviceStatusList[id];
-    } return null;
+    } else return null;
   }, [deviceStatusList, id]);
 
   const targetDevice = useMemo(() => {
@@ -94,7 +94,21 @@ const DeviceContainer = () => {
               name={targetDevice.serial || '-'}
               type={targetDevice.type || '-'}
             />
-            {deviceStatusData !== null && <DeviceIndex data={deviceStatusData} />}
+            <DeviceIndex
+              data={deviceStatusData || {
+                particulate_matter: 0,
+                temperature: 0,
+                humidity: 0,
+                bio_aerosol: 0,
+                air_quality: 0,
+                food_poisoning: 0,
+                hydrogen_sulfide: 0,
+                ammonia: 0,
+                voc: 0,
+                co2: 0,
+                createdAt: '',
+              }}
+            />
             <Division />
             <DeviceStatus user={user} deviceId={targetDevice.id} /* data={targetDevice} */ />
           </Left>

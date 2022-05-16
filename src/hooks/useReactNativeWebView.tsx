@@ -4,6 +4,7 @@ import ToastState from '../recoil/toast';
 
 const useReactNativeWebView = () => {
     const sendToast = useSetRecoilState(ToastState);
+    const isRNWebView = !!window.isRNWebView;
 
     const sendMessage = (payload:{ type: string, data?:any }) => {
         if (window.isRNWebView) {
@@ -18,7 +19,7 @@ const useReactNativeWebView = () => {
         }
     }
 
-    return { sendMessage };
+    return { isRNWebView, sendMessage };
 }
 
 export default useReactNativeWebView;

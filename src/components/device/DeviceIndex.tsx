@@ -40,19 +40,19 @@ const DeviceIndex = ({ data }: { data: DeviceStatusType }) => {
           title="바이오에어로줄지수"
           progress={data.bio_aerosol}
           color="#007cba"
-          text="좋음"
+          text={!!data.bio_aerosol ? "좋음" : '-'}
         />
         <CircularProgress
           title="공기질지수"
           progress={data.air_quality}
           color="#00c4ff"
-          text="나쁨"
+          text={!!data.air_quality ? "나쁨" : '-'}
         />
         <CircularProgress
           title="식중독 지수"
           progress={data.food_poisoning}
           color="#00baba"
-          text="낮음"
+          text={!!data.food_poisoning ? "낮음" : '-'}
         />
       </Row>
       <Row>
