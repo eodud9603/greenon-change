@@ -48,7 +48,7 @@ const DeviceStatus = ({ /* data, */deviceId, user }: { /* data: DeviceType, */de
     });
   }
   const onClickMode = (mode: number) => {
-    if (!user || data.mode === 99) return;
+    if (!user || data.mode === 99 || data.power === 0) return;
     apis.controlDevice(data.id, user.id, { mode }).then(({ data }) => {
       if (data.includes('mode')) {
         setDeviceList(deviceList.map(d => {
@@ -121,12 +121,14 @@ const DeviceStatus = ({ /* data, */deviceId, user }: { /* data: DeviceType, */de
         <label>모드 선택</label>
         <div className="option-list">
           <DeviceStatusOption
-            active={data.mode === 1}
+            {...(data.power !== 1) && { noPower: true }}
+            active={data.mode === 1 && data.power === 1}
             text={data.mode === 99 ? 'pending...' : '제균'}
             onClick={() => onClickMode(1)}
           />
           {data.mode !== 99 &&
             <DeviceStatusOption
+              {...(data.power !== 1) && { noPower: true }}
               active={data.mode === 2}
               text={data.mode === 99 ? 'pending...' : '해충'}
               onClick={() => onClickMode(2)}
@@ -138,18 +140,21 @@ const DeviceStatus = ({ /* data, */deviceId, user }: { /* data: DeviceType, */de
         <label>모드 시간 선택</label>
         <div className="option-list">
           <DeviceStatusOption
-            active={data.mode_time === 0}
+            {...(data.power !== 1) && { noPower: true }}
+            active={data.mode_time === 0 && data.power === 1}
             text={data.mode_time === 99 ? 'pending...' : '연속'}
             onClick={() => onClickModeTime(0)}
           />
           {data.mode_time !== 99 && <>
             <DeviceStatusOption
-              active={data.mode_time === 1}
+              {...(data.power !== 1) && { noPower: true }}
+              active={data.mode_time === 1 && data.power === 1}
               text={data.mode_time === 99 ? 'pending...' : '1'}
               onClick={() => onClickModeTime(1)}
             />
             <DeviceStatusOption
-              active={data.mode_time === 2}
+              {...(data.power !== 1) && { noPower: true }}
+              active={data.mode_time === 2 && data.power === 1}
               text={data.mode_time === 99 ? 'pending...' : '2'}
               onClick={() => onClickModeTime(2)}
             />
@@ -160,13 +165,15 @@ const DeviceStatus = ({ /* data, */deviceId, user }: { /* data: DeviceType, */de
         <label>동작 제어</label>
         <div className="option-list">
           <DeviceStatusOption
-            active={data.is_working === 1}
+            {...(data.power !== 1) && { noPower: true }}
+            active={data.is_working === 1 && data.power === 1}
             text={data.is_working === 99 ? 'pending...' : 'Start'}
             onClick={() => onClickIsWorking(1)}
           />
           {data.is_working !== 99 &&
             <DeviceStatusOption
-              active={data.is_working === 0}
+              {...(data.power !== 1) && { noPower: true }}
+              active={data.is_working === 0 && data.power === 1}
               text={data.is_working === 99 ? 'pending...' : 'Stop'}
               onClick={() => onClickIsWorking(0)}
             />
@@ -177,6 +184,7 @@ const DeviceStatus = ({ /* data, */deviceId, user }: { /* data: DeviceType, */de
         <label>공간 제균</label>
         <div className="option-list">
           <DeviceStatusOption
+            {...(data.power !== 1) && { noPower: true }}
             active={false}
             // text="1시간"
             text={(data.mode === 99 || data.mode_time === 99) ? 'pending...' : '1시간'}
@@ -184,16 +192,19 @@ const DeviceStatus = ({ /* data, */deviceId, user }: { /* data: DeviceType, */de
           />
           {(data.mode !== 99 && data.mode_time !== 99) && <>
             <DeviceStatusOption
+              {...(data.power !== 1) && { noPower: true }}
               active={false}
               text="2시간"
               onClick={() => onClickRmAreaBacteria(2)}
             />
             <DeviceStatusOption
+              {...(data.power !== 1) && { noPower: true }}
               active={false}
               text="연속"
               onClick={() => onClickRmAreaBacteria(0)}
             />
             <DeviceStatusOption
+              {...(data.power !== 1) && { noPower: true }}
               active={false}
               text="수동"
               onClick={() => onClickRmAreaBacteria(-1)}
@@ -205,6 +216,7 @@ const DeviceStatus = ({ /* data, */deviceId, user }: { /* data: DeviceType, */de
         <label>해충방제</label>
         <div className="option-list">
           <DeviceStatusOption
+            {...(data.power !== 1) && { noPower: true }}
             active={false}
             // text="1시간"
             text={(data.mode === 99 || data.mode_time === 99) ? 'pending...' : '1시간'}
@@ -212,16 +224,19 @@ const DeviceStatus = ({ /* data, */deviceId, user }: { /* data: DeviceType, */de
           />
           {(data.mode !== 99 && data.mode_time !== 99) && <>
             <DeviceStatusOption
+              {...(data.power !== 1) && { noPower: true }}
               active={false}
               text="2시간"
               onClick={() => onClickPestControl(2)}
             />
             <DeviceStatusOption
+              {...(data.power !== 1) && { noPower: true }}
               active={false}
               text="연속"
               onClick={() => onClickPestControl(0)}
             />
             <DeviceStatusOption
+              {...(data.power !== 1) && { noPower: true }}
               active={false}
               text="수동"
               onClick={() => onClickPestControl(-1)}

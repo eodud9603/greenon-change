@@ -22,6 +22,7 @@ const GridItem = styled.div`
 
   label {
     color: #989898;
+    margin-bottom: 10px;
   }
 `;
 
@@ -80,8 +81,8 @@ const DeviceCardGrid = ({ device }: { device: DeviceType }) => {
         <p style={{ marginTop: 5 }}>{deviceStatus ? deviceStatus.air_quality : '-'}</p>
       </GridItem>
       <GridItem style={{ marginBottom: 20 }}>
-        <label>미세먼지</label>
-        <p style={{ marginTop: 5 }}>{deviceStatus ? deviceStatus.particulate_matter + 'PM' : '-'}</p>
+        <label>미세먼지(PM2.5)</label>
+        <p style={{ marginTop: 5 }}>{deviceStatus ? deviceStatus.particulate_matter : '-'}</p>
       </GridItem>
       <GridItem style={{ marginBottom: 20 }}>
         <label>식중독지수</label>
@@ -99,7 +100,10 @@ const DeviceCardGrid = ({ device }: { device: DeviceType }) => {
         <label>전원</label>
         <Button
           name="controlPower"
-          onClick={(e) => { e.preventDefault(); handleOpenModal('controlPower', device.power); }}
+          onClick={(e) => {
+            e.preventDefault();
+            handleOpenModal('controlPower', device.power);
+          }}
           red={device.power === 1 ? "false" : "true"}
         >
           {device.power === 99 ? 'pending...' : device.power === 1 ? "켜짐" : "꺼짐"}
@@ -109,7 +113,11 @@ const DeviceCardGrid = ({ device }: { device: DeviceType }) => {
         <label>모드</label>
         <Button
           name="controlMode"
-          onClick={(e) => { e.preventDefault(); handleOpenModal('controlMode', device.mode); }}
+          onClick={(e) => {
+            e.preventDefault();
+            if (device.power === 0 || device.mode === 99) return;
+            handleOpenModal('controlMode', device.mode);
+          }}
           red={device.power === 1 ? "false" : "true"}
         >
           {device.mode === 99 ? 'pending...' : formatMode(device.mode)}
@@ -119,7 +127,11 @@ const DeviceCardGrid = ({ device }: { device: DeviceType }) => {
         <label>시간</label>
         <Button
           name="controlTime"
-          onClick={(e) => { e.preventDefault(); handleOpenModal('controlTime', device.mode_time); }}
+          onClick={(e) => {
+            e.preventDefault();
+            if (device.power === 0 || device.mode_time === 99) return;
+            handleOpenModal('controlTime', device.mode_time);
+          }}
           red={device.power === 1 ? "false" : "true"}
         >
           {device.mode_time === 99 ? 'pending...' : formatModeTime(device.mode_time)}

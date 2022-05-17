@@ -59,7 +59,7 @@ const DeviceIndex = ({ data }: { data: DeviceStatusType }) => {
         <InlineRow>
           <Icon1 />
           <InlineCol>
-            <label style={{ color: "#8b8b8b" }}>미세먼지</label>
+            <label style={{ color: "#8b8b8b" }}>미세먼지(PM2.5)</label>
             <p style={{ fontSize: 14 }}>{data.particulate_matter}PM</p>
           </InlineCol>
         </InlineRow>
