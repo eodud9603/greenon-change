@@ -12,21 +12,26 @@ import {
 import { Line } from "react-chartjs-2";
 import moment from "moment";
 import { DeviceStatusType } from "../../recoil/device";
+import zoomPlugin from 'chartjs-plugin-zoom'
 // import { IDeviceData } from "../../stores/device";
 
 ChartJS.register(
+  zoomPlugin,
   CategoryScale,
   LinearScale,
   PointElement,
   LineElement,
   Title,
-  Tooltip
+  Tooltip,
 );
+
+const width = window.innerWidth;
 
 const ButtonGroup = styled.div`
   display: flex;
+  //white-space: nowrap;
   overflow-x: scroll;
-
+  
   &>* {
     margin-right: 5px;
   }
@@ -113,12 +118,68 @@ const DeviceChart = ({ chartData }: { chartData: DeviceStatusType[] }) => {
           active={active === "particulate_matter"}
           onClick={handleClick}
         >
-          미세먼지지수
+          미세먼지지수(PM2.5)
         </Button>
+        {/*<Button*/}
+        {/*    name="hydrogen_sulfide"*/}
+        {/*    active={active === "hydrogen_sulfide"}*/}
+        {/*    onClick={handleClick}*/}
+        {/*>*/}
+        {/*  황화수소*/}
+        {/*</Button>*/}
+        {/*<Button*/}
+        {/*    name="ammonia"*/}
+        {/*    active={active === "ammonia"}*/}
+        {/*    onClick={handleClick}*/}
+        {/*>*/}
+        {/*  암모니아*/}
+        {/*</Button>*/}
+        {/*<Button*/}
+        {/*    name="voc"*/}
+        {/*    active={active === "voc"}*/}
+        {/*    onClick={handleClick}*/}
+        {/*>*/}
+        {/*  VOC*/}
+        {/*</Button>*/}
+        {/*<Button*/}
+        {/*    name="co2"*/}
+        {/*    active={active === "co2"}*/}
+        {/*    onClick={handleClick}*/}
+        {/*>*/}
+        {/*  CO2*/}
+        {/*</Button>*/}
       </ButtonGroup>
-      <Line data={data} />
+      <Line data={data} options={{
+        // scales: {
+        //   y: {
+        //     min: 0,
+        //     max: active === 'air_quality' ? 500 : 100,
+        //   },
+        // },
+        plugins: {
+          zoom: {
+            zoom: {
+              wheel: {
+                enabled: true,
+                speed:0.5
+              },
+              pinch: {
+                enabled: true
+              },
+              mode: 'xy',
+            },
+            pan: {
+              enabled: true,
+              mode: 'xy',
+            },
+            limits: {
+              y: {min: 0, max: 100},
+            },
+          }
+        }
+      }}/>
     </React.Fragment>
   );
 };
 
-export default DeviceChart;
+export default React.memo(DeviceChart);

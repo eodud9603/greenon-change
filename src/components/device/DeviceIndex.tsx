@@ -39,20 +39,22 @@ const DeviceIndex = ({ data }: { data: DeviceStatusType }) => {
         <CircularProgress
           title="바이오에어로줄지수"
           progress={data.bio_aerosol}
-          color="#007cba"
-          text={!!data.bio_aerosol ? "좋음" : '-'}
+          // color="#007cba"
+          color={data.bio_aerosol <= 32.5 ? '#00c4ff' : data.bio_aerosol <= 45.5 ? '#00baba' : data.bio_aerosol <= 68 ? '#ffc400' : 68 < data.bio_aerosol && '#ff0000'}
+          text={data.bio_aerosol <= 32.5 ? '좋음' : data.bio_aerosol <= 45.5 ? '보통' : data.bio_aerosol <= 68 ? '나쁨' : 68 <  data.bio_aerosol && '매우나쁨'}
         />
         <CircularProgress
           title="공기질지수"
           progress={data.air_quality}
-          color="#00c4ff"
-          text={!!data.air_quality ? "나쁨" : '-'}
+          color={data.air_quality <= 50 ? '#00c4ff' : data.air_quality <= 100 ? '#00baba' : data.air_quality <= 250 ? '#ffc400' : 250 < data.air_quality && '#ff0000'}
+          text={data.air_quality <= 50 ? '좋음' : data.air_quality <= 100 ? '보통' : data.air_quality <= 250 ? '나쁨' : 250 < data.air_quality && '매우나쁨'}
         />
+        {/*00baba*/}
         <CircularProgress
           title="식중독 지수"
           progress={data.food_poisoning}
-          color="#00baba"
-          text={!!data.food_poisoning ? "낮음" : '-'}
+          color={data.food_poisoning <= 55 ? '#00c4ff' : data.food_poisoning <= 71 ? '#00baba' : data.food_poisoning <= 86 ? '#ffc400' : 86 < data.food_poisoning  && '#ff0000'}
+          text={data.food_poisoning <= 55 ? '좋음' : data.food_poisoning <= 71 ? '보통' : data.food_poisoning <= 86 ? '나쁨' : 86 < data.food_poisoning && '매우나쁨'}
         />
       </Row>
       <Row>
