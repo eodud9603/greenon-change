@@ -31,6 +31,7 @@ const ButtonGroup = styled.div`
   display: flex;
   //white-space: nowrap;
   overflow-x: scroll;
+  width: calc(100vw - 40px);
   
   &>* {
     margin-right: 5px;
@@ -120,34 +121,34 @@ const DeviceChart = ({ chartData }: { chartData: DeviceStatusType[] }) => {
         >
           미세먼지지수(PM2.5)
         </Button>
-        {/*<Button*/}
-        {/*    name="hydrogen_sulfide"*/}
-        {/*    active={active === "hydrogen_sulfide"}*/}
-        {/*    onClick={handleClick}*/}
-        {/*>*/}
-        {/*  황화수소*/}
-        {/*</Button>*/}
-        {/*<Button*/}
-        {/*    name="ammonia"*/}
-        {/*    active={active === "ammonia"}*/}
-        {/*    onClick={handleClick}*/}
-        {/*>*/}
-        {/*  암모니아*/}
-        {/*</Button>*/}
-        {/*<Button*/}
-        {/*    name="voc"*/}
-        {/*    active={active === "voc"}*/}
-        {/*    onClick={handleClick}*/}
-        {/*>*/}
-        {/*  VOC*/}
-        {/*</Button>*/}
-        {/*<Button*/}
-        {/*    name="co2"*/}
-        {/*    active={active === "co2"}*/}
-        {/*    onClick={handleClick}*/}
-        {/*>*/}
-        {/*  CO2*/}
-        {/*</Button>*/}
+        <Button
+            name="hydrogen_sulfide"
+            active={active === "hydrogen_sulfide"}
+            onClick={handleClick}
+        >
+          황화수소
+        </Button>
+        <Button
+            name="ammonia"
+            active={active === "ammonia"}
+            onClick={handleClick}
+        >
+          암모니아
+        </Button>
+        <Button
+            name="voc"
+            active={active === "voc"}
+            onClick={handleClick}
+        >
+          VOC
+        </Button>
+        <Button
+            name="co2"
+            active={active === "co2"}
+            onClick={handleClick}
+        >
+          CO2
+        </Button>
       </ButtonGroup>
       <Line data={data} options={{
         // scales: {
