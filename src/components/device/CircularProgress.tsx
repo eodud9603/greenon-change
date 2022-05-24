@@ -68,7 +68,7 @@ const CircularProgress = ({
         />
         <TextWrapper color={color}>
           <strong>{progress.toString()}</strong>
-          <p>{text}</p>
+          <p style={{fontSize:14}}>{text}</p>
         </TextWrapper>
       </ProgressWrapper>
     </Container>
