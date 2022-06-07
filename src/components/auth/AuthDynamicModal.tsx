@@ -43,6 +43,7 @@ const DynamicBox = styled.div`
 const ModalContent = styled.div`
   display: flex;
   flex-direction: column;
+  white-space: pre-wrap;
   padding: 20px;
   flex-grow: 1;
   /* gap: 20px; */

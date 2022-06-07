@@ -12,6 +12,7 @@ import {
   ControlPower,
   ControlTime,
   SortDevice,
+  InfoDevice,
 } from ".";
 // import useStore from "../../stores";
 // import { useObserver } from "mobx-react";
@@ -78,10 +79,11 @@ const ResponsiveModal = () => {
       case "controlPower": return "전원";
       case "controlMode": return "모드";
       case "controlTime": return "시간";
+      case "infoDevice": return modal.infoDevice.title;
       case "error": return "제품번호가 확인되지 않습니다";
       default: return "";
     }
-  }, [modal.type]);
+  }, [modal.type,modal.infoDevice.title]);
 
   const onClose = () => setModal({ ...modal, visible: false });
 
@@ -123,6 +125,8 @@ const ModalContent = ({ type }: { type: /* ModalType */any }) => {
       return <ControlMode device_id={modal.targetDeviceId} />;
     case "controlTime":
       return <ControlTime device_id={modal.targetDeviceId} />;
+    case "infoDevice":
+      return <InfoDevice title={modal.infoDevice.title}/>;
     default:
       return <></>;
   }

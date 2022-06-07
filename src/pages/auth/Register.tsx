@@ -42,7 +42,7 @@ const Register: React.FC = () => {
           서비스 이용을 위한 약관에 동의해주시기 바립니다.
         </h3>
         <FormWrapper style={{ marginBottom: 20 }}>
-          <TextLink to="/register/agree1">그린온 이용약관 동의</TextLink>
+          <TextLink to="/register/agree1/terms1">그린온 이용약관 동의</TextLink>
           <CheckInput>
             <input
               id="check1"
@@ -54,7 +54,7 @@ const Register: React.FC = () => {
           </CheckInput>
         </FormWrapper>
         <FormWrapper style={{ marginBottom: 20 }}>
-          <TextLink to="/register/agree1">개인정보 수집이용 동의</TextLink>
+          <TextLink to="/register/agree1/terms2">개인정보 수집이용 동의</TextLink>
           <CheckInput>
             <input
               id="check2"
@@ -66,7 +66,7 @@ const Register: React.FC = () => {
           </CheckInput>
         </FormWrapper>
         <FormWrapper style={{ marginBottom: 20 }}>
-          <TextLink to="/register/agree1">만 14세 이상 고객 확인</TextLink>
+          <TextLink to="/register/agree1/terms3">만 14세 이상 고객 확인</TextLink>
           <CheckInput>
             <input
               id="check3"
@@ -78,7 +78,7 @@ const Register: React.FC = () => {
           </CheckInput>
         </FormWrapper>
         <FormWrapper style={{ marginBottom: 20 }}>
-          <TextLink to="/register/agree1">마케팅 활용 동의</TextLink>
+          <TextLink to="/register/agree1/terms4">마케팅 활용 동의</TextLink>
           <CheckInput>
             <input
               id="check4"

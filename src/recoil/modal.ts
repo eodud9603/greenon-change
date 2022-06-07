@@ -9,19 +9,22 @@ export type ModalType =
 | "controlMode"
 | "controlTime"
 | "controlOption"
+| "infoDevice"
 | "error";
 
 export type ModalStateType = {
    visible: boolean,
    type: ModalType,
    targetDeviceId: string;
+   infoDevice:{title:string}
 };
 const ModalState = atom<ModalStateType>({
    key: 'ModalState',
    default: {
       visible: false,
       type: 'addDevice',
-      targetDeviceId: ''
+      targetDeviceId: '',
+      infoDevice:{title:''}
    }
 });
 

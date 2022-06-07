@@ -5,7 +5,7 @@ import ModalState from "../../recoil/modal";
 import { ReactComponent as PinIcon } from "../../static/icons/icon-pin-2.svg";
 import { AddDevice } from "../modal";
 // import useStore from "../../stores";
-import { useRecoilValue, useSetRecoilState } from 'recoil';
+import {useRecoilState, useRecoilValue, useSetRecoilState} from 'recoil';
 import { apis } from "../../lib/axios";
 import AppState from "../../recoil/app";
 import useReactNativeWebView from "../../hooks/useReactNativeWebView";
@@ -62,7 +62,7 @@ const Button = styled.button`
 const Sider = () => {
   const { sendMessage } = useReactNativeWebView();
   const app = useRecoilValue(AppState);
-  const setModal = useSetRecoilState(ModalState);
+  const [modal,setModal] = useRecoilState(ModalState);
 
   const handleClickDeviceRegister = () => {
     sendMessage({ type: 'RegisterDevice' });
@@ -95,13 +95,13 @@ const Sider = () => {
         <div style={{ display: "flex", width: "100%", gap: 10 }}>
           <Button
             style={{ flex: 1 }}
-            onClick={() => setModal({ visible: true, type: 'controlDevice', targetDeviceId: '' })}
+            onClick={() => setModal({...modal, visible: true, type: 'controlDevice', targetDeviceId: '' })}
           >
             전체 제어
           </Button>
           <Button
             style={{ flex: 1 }}
-            onClick={() => setModal({ visible: true, type: 'controlMove', targetDeviceId: '' })}
+            onClick={() => setModal({...modal, visible: true, type: 'controlMove', targetDeviceId: '' })}
           >
             동작 제어
           </Button>

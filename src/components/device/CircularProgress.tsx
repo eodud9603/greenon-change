@@ -8,6 +8,7 @@ interface CircularProgressProps {
   color: string;
   progress: number;
   text: string;
+  onClick: () => void;
 }
 
 const Container = styled.div`
@@ -51,11 +52,12 @@ const CircularProgress = ({
   color,
   progress,
   text,
+  onClick
 }: CircularProgressProps) => {
   let rgbObj = hexRgb(color);
 
   return (
-    <Container color={color}>
+    <Container color={color} onClick={onClick}>
       <label>{title}</label>
       <ProgressWrapper rgbObj={rgbObj}>
         <CircularProgressbar

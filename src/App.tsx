@@ -72,7 +72,7 @@ function App() {
             location: res.data.documents[0].address.region_2depth_name
           });
         })
-      }); 
+      });
     }
   }, []); */
 
@@ -118,7 +118,7 @@ function App() {
         setDeviceList(data);
         setLoadState(true);
       });
-      
+
       if (isRNWebView) {
         sendMessage({ type: 'UserInfo', data: { userId: user.id } });
       }
@@ -181,7 +181,7 @@ function App() {
         <Route path="/find_email" element={<FindEmail />} />
         <Route path="/auth/kakao/callback" element={<KakaoCallback />} />
         <Route path="/find_password" element={<FindPassword />} />
-        <Route path="register/agree1" element={<Agree1 />} />
+        <Route path="register/agree1/:type" element={<Agree1 />} />
       </Route>
     </Routes>
     <Toast />
