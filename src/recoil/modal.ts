@@ -10,6 +10,7 @@ export type ModalType =
 | "controlTime"
 | "controlOption"
 | "infoDevice"
+| "updateDevice"
 | "error";
 
 export type ModalStateType = {

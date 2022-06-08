@@ -1,5 +1,7 @@
 import React, {useEffect, useMemo} from "react";
 import styled from "styled-components";
+import {useRecoilState} from "recoil";
+import DeviceState, {DeviceCurrentStatusState} from "../../recoil/device";
 
 export const Container = styled.div`
   position: fixed;
@@ -94,6 +96,8 @@ export const SubmitBtn = styled.button`
 
 const InfoDevice = (props) => {
     const {title} = props;
+    const data = useRecoilState(DeviceState);
+    const data2 = useRecoilState(DeviceCurrentStatusState);
     let arr = useMemo(() => {
         switch (title){
             case '바이오에어로졸지수' :
@@ -105,6 +109,12 @@ const InfoDevice = (props) => {
             default: return [0,0,0,0];
         }
     },[title]);
+
+    // useEffect(()=>{
+    //     console.log(data);
+    //     console.log(data2)
+    // },[title])
+
     return (
         <>
             {/*<Container>*/}

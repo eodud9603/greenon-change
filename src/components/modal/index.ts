@@ -6,3 +6,4 @@ export { default as ControlPower } from "./ControlPower";
 export { default as ControlMode } from "./ControlMode";
 export { default as ControlTime } from "./ControlTime";
 export { default as InfoDevice } from "./InfoDevice";
+export { default as UpdateDevice } from "./UpdateDevice";

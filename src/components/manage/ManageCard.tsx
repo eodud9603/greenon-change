@@ -27,6 +27,13 @@ const CardHeader = styled.div`
   align-items: center;
 `;
 
+const NameBox = styled.h5`
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 150px;
+`;
+
 const InfoBox = styled.div`
   display: flex;
   align-items: center;
@@ -57,7 +64,7 @@ const ManageCard = ({ data }: { data: DeviceType }) => {
 
   const handleEdit = (e:any) => {
     e.preventDefault();
-    
+    setModal({...modal,visible:true,type:'updateDevice',targetDeviceId:data.id});
   }
 
   const handleOnDelete = (e: any) => {
@@ -65,7 +72,7 @@ const ManageCard = ({ data }: { data: DeviceType }) => {
 
     if (!user) return;
 
-    apis.unregisterDevice(data.id, user.id).then(({ data }) => { 
+    apis.unregisterDevice(data.id, user.id).then(({ data }) => {
       if (data.isSuccess && data.affected > 0) {
         apis.getUserDevices(user.id).then(({ data }) => setDeviceList(data));
         setModal({ ...modal, visible: false });
@@ -74,14 +81,14 @@ const ManageCard = ({ data }: { data: DeviceType }) => {
         setToast({ open: true, message: '제품 삭제에 실패했습니다.', type: 'error' })
       }
     });
-    
+
     // device.deleteDevice(data.id);
   };
 
   return (
     <ManageCardBox to={`/devices/${data.id}`}>
       <CardHeader>
-        <h5>공장동 1동 출입문</h5>
+        <NameBox>{data.name}</NameBox>
         <InfoBox>
           <div
             style={{
@@ -90,7 +97,7 @@ const ManageCard = ({ data }: { data: DeviceType }) => {
               textAlign: "right",
             }}
           >
-            <small>{data.name}</small>
+            <small>{data.serial}</small>
             <small>{data.type}</small>
           </div>
           <AirPuriIcon />

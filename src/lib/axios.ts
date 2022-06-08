@@ -31,21 +31,23 @@ export const apis = {
       headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
     });
   }, */
-  getUserDevices: (userId:number) => 
+  getUserDevices: (userId:number) =>
     instance.get(`/device/user-device?userId=${userId}`),
-  getDeviceCurrentStatus: (userId:number) => 
+  getDeviceCurrentStatus: (userId:number) =>
     instance.get(`/device/user-device/current-status?userId=${userId}`),
-  getDeviceStatus: (id:string, userId:number) => 
+  getDeviceStatus: (id:string, userId:number) =>
     instance.get(`/device/user-device/${id}/status?userId=${userId}`),
   getDeviceConfigs: (userId:number) =>
     instance.get(`/device/user-device/current-configs?userId=${userId}`),
-  registerDevice: (id:string, userId:number) => 
+  registerDevice: (id:string, userId:number) =>
     instance.post('/device/user-device/register', { id, userId }),
-  unregisterDevice: (id:string, userId:number) => 
+  updateDevice: (deviceId:string, name: string) =>
+    instance.patch(`/device/${deviceId}/update`, {name}),
+  unregisterDevice: (id:string, userId:number) =>
     instance.post('/device/user-device/unregister', { id, userId }),
   controlDevice: (deviceId:string, userId:number, payload:{ [key:string]: number }) =>
     instance.post('/device/user-device/config', { deviceId, userId, payload }),
-  
+
   updateAllDevice: (field: any) => {
     instance.put("/devices", field, {
       headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },

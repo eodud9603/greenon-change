@@ -13,6 +13,7 @@ import {
   ControlTime,
   SortDevice,
   InfoDevice,
+  UpdateDevice
 } from ".";
 // import useStore from "../../stores";
 // import { useObserver } from "mobx-react";
@@ -80,6 +81,7 @@ const ResponsiveModal = () => {
       case "controlMode": return "모드";
       case "controlTime": return "시간";
       case "infoDevice": return modal.infoDevice.title;
+      case "updateDevice": return '제품정보 수정';
       case "error": return "제품번호가 확인되지 않습니다";
       default: return "";
     }
@@ -127,6 +129,8 @@ const ModalContent = ({ type }: { type: /* ModalType */any }) => {
       return <ControlTime device_id={modal.targetDeviceId} />;
     case "infoDevice":
       return <InfoDevice title={modal.infoDevice.title}/>;
+    case "updateDevice":
+      return <UpdateDevice device_id={modal.targetDeviceId}/>;
     default:
       return <></>;
   }
