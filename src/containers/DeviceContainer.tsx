@@ -61,13 +61,19 @@ const DeviceContainer = () => {
   const deviceList = useRecoilValue(DeviceState);
   const [status, setStatus] = useState<DeviceStatusType[]>([]);
 
-  useEffect(() => {
-    if (id && user) {
-      apis.getDeviceStatus(id, user.id).then(({ data }) => {
-        setStatus(data.filter(d => d.id === id)[0].status);
-      })
-    }
-  }, [id]);
+  // useEffect(() => {
+  //   if (id) {
+        //기존 api
+  //     // apis.getDeviceStatus(id, user.id).then(({ data }) => {
+  //     //     console.log('status :: ',data)
+  //     //   setStatus(data.filter(d => d.id === id)[0].status);
+  //     // })
+  //     apis.getCumulativeData(id,'week').then(({ data }) => {
+  //         console.log('status :: ',data)
+  //         setStatus(data);
+  //     })
+  //   }
+  // }, [id]);
 
   const deviceStatusList = useRecoilValue(DeviceCurrentStatusState);
 
@@ -79,10 +85,11 @@ const DeviceContainer = () => {
 
   const targetDevice = useMemo(() => {
     const index = deviceList.findIndex(d => d.id === id);
-    
+
     if (index === -1) return null;
     return deviceList[index];
   }, [deviceList, id]);
+
   return targetDevice ? (
     <>
       <MainControlBar />
@@ -113,7 +120,7 @@ const DeviceContainer = () => {
             <DeviceStatus user={user} deviceId={targetDevice.id} /* data={targetDevice} */ />
           </Left>
           <Right>
-            <DeviceChart chartData={status} />
+            <DeviceChart id={id} />
           </Right>
         </Box>
       </Container>

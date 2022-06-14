@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from "react";
+import React, {useEffect, useMemo, useState} from "react";
 import styled from "styled-components";
 import {
   Chart as ChartJS,
@@ -13,6 +13,7 @@ import { Line } from "react-chartjs-2";
 import moment from "moment";
 import { DeviceStatusType } from "../../recoil/device";
 import zoomPlugin from 'chartjs-plugin-zoom'
+import {apis} from "../../lib/axios";
 // import { IDeviceData } from "../../stores/device";
 
 ChartJS.register(
@@ -57,11 +58,21 @@ const Button = styled.button<{ active?: boolean }>`
   color: ${({ active }) => (active ? "#fff" : "#007cba")};
 `;
 
-const DeviceChart = ({ chartData }: { chartData: DeviceStatusType[] }) => {
-  const [active, setActive] = useState("bio_air_roll");
+const DeviceChart = ({ id }: { id:string }) => {
+  const [active, setActive] = useState({sensor: "bio_air_roll",date:'day'});
+  const [chartData,setChartData] = useState([]);
 
   const handleClick = (e:any) => {
-    setActive(e.target.name);
+    setActive({
+      ...active,
+      sensor: e.target.name
+    });
+  };
+  const handleDateClick = (e:any) => {
+    setActive({
+      ...active,
+      date: e.target.name
+    });
   };
   const sortedData = useMemo(() => {
     return chartData.sort(
@@ -73,18 +84,36 @@ const DeviceChart = ({ chartData }: { chartData: DeviceStatusType[] }) => {
   const data: any = useMemo(() => {
     return {
       labels: sortedData.map((data: DeviceStatusType) =>
-        moment(data.createdAt).format("HH:mm")
+        moment(data.createdAt).format(active.date === 'day' ? "HH:mm" : "MM-DD")
       ),
       datasets: [
         {
-          data: sortedData.map((data: any) => data[active]),
+          data: sortedData.map((data: any) => data[active.sensor]),
           borderColor: "#007ba8",
           backgroundColor: "#fff",
         },
       ],
       fill: false,
     };
-  }, [sortedData, active]);
+    console.log('sortDate1 :: ',sortedData )
+  }, [sortedData, active.sensor,active.date]);
+
+  useEffect(() => {
+    if (id) {
+      // apis.getDeviceStatus(id, user.id).then(({ data }) => {
+      //     console.log('status :: ',data)
+      //   setStatus(data.filter(d => d.id === id)[0].status);
+      // })
+      apis.getCumulativeData(id,active.date).then(({ data }) => {
+        console.log('status :: ',data)
+        setChartData(data);
+      })
+    }
+  }, [active.date,active.sensor]);
+
+  useEffect(() => {
+    console.log('sortDate2 :: ',chartData )
+  },[active])
 
   return (
     <React.Fragment>
@@ -92,7 +121,7 @@ const DeviceChart = ({ chartData }: { chartData: DeviceStatusType[] }) => {
       <ButtonGroup>
         <Button
           name="bio_aerosol"
-          active={active === "bio_aerosol"}
+          active={active.sensor === "bio_aerosol"}
           onClick={handleClick}
           // style={{ marginRight: 5 }}
         >
@@ -100,7 +129,7 @@ const DeviceChart = ({ chartData }: { chartData: DeviceStatusType[] }) => {
         </Button>
         <Button
           name="air_quality"
-          active={active === "air_quality"}
+          active={active.sensor === "air_quality"}
           onClick={handleClick}
           // style={{ marginRight: 5 }}
         >
@@ -108,7 +137,7 @@ const DeviceChart = ({ chartData }: { chartData: DeviceStatusType[] }) => {
         </Button>
         <Button
           name="food_poisoning"
-          active={active === "food_poisoning"}
+          active={active.sensor === "food_poisoning"}
           onClick={handleClick}
           // style={{ marginRight: 5 }}
         >
@@ -116,38 +145,64 @@ const DeviceChart = ({ chartData }: { chartData: DeviceStatusType[] }) => {
         </Button>
         <Button
           name="particulate_matter"
-          active={active === "particulate_matter"}
+          active={active.sensor === "particulate_matter"}
           onClick={handleClick}
         >
           미세먼지지수(PM2.5)
         </Button>
         <Button
             name="hydrogen_sulfide"
-            active={active === "hydrogen_sulfide"}
+            active={active.sensor === "hydrogen_sulfide"}
             onClick={handleClick}
         >
           황화수소
         </Button>
         <Button
             name="ammonia"
-            active={active === "ammonia"}
+            active={active.sensor === "ammonia"}
             onClick={handleClick}
         >
           암모니아
         </Button>
         <Button
             name="voc"
-            active={active === "voc"}
+            active={active.sensor === "voc"}
             onClick={handleClick}
         >
           VOC
         </Button>
         <Button
             name="co2"
-            active={active === "co2"}
+            active={active.sensor === "co2"}
             onClick={handleClick}
         >
           CO2
+        </Button>
+      </ButtonGroup>
+      <ButtonGroup>
+        <Button
+            name="day"
+            active={active.date === "day"}
+            onClick={handleDateClick}
+            // style={{ marginRight: 5 }}
+        >
+          일
+        </Button>
+        <Button
+            name="week"
+            active={active.date === "week"}
+            onClick={handleDateClick}
+            // style={{ marginRight: 5 }}
+        >
+          주
+        </Button>
+        <Button
+            name="month"
+            active={active.date === "month"}
+            onClick={handleDateClick}
+            // style={{ marginRight: 5 }}
+        >
+          월
         </Button>
       </ButtonGroup>
       <Line data={data} options={{
