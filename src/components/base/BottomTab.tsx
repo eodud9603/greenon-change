@@ -21,7 +21,7 @@ const BottomTab = () => {
           }
           icon={<GBN2 />}
         /> */}
-        <TabItem path="/manage" icon={<GBN3 />} />
+        <TabItem path="/manage/1" icon={<GBN3 />} />
         <TabItem path="/mypage" icon={<GBN4 />} />
       </Container>
     );

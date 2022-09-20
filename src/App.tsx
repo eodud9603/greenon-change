@@ -38,6 +38,8 @@ import AppState from "./recoil/app";
 import KakaoCallback from "./pages/KakaoCallback";
 import axios from "axios";
 import useReactNativeWebView from "./hooks/useReactNativeWebView";
+import Report from "./pages/Report";
+import Splash from "./pages/auth/Splash";
 
 declare global {
   interface Window {
@@ -123,8 +125,9 @@ function App() {
         sendMessage({ type: 'UserInfo', data: { userId: user.id } });
       }
     } else {
-      if (location.pathname !== '/auth/kakao/callback')
-        navigate('/login', { replace: true });
+      if (location.pathname !== '/auth/kakao/callback') {
+        navigate('/splash', { replace: true });
+      }
     }
   }, [user]);
 
@@ -155,12 +158,12 @@ function App() {
   }, [loadState, user, /* deviceList */]);
 
   return (
-    <>
+    <div>
     <Routes>
       <Route element={<MainLayout />}>
         <Route path="/" element={<MainContainer />} />
         <Route path="/devices/:id" element={<DeviceContainer />} />
-        <Route path="/manage" element={<ManageContainer />} />
+        <Route path="/manage/:id" element={<ManageContainer />} />
         <Route path="/mypage" element={<MyPageContainer />} />
         <Route path="/profile_edit" element={<ProfileEdit />} />
         <Route path="/change_password" element={<ChangePassword />} />
@@ -173,8 +176,11 @@ function App() {
         <Route path="/usage" element={<Usage />} />
         <Route path="/request" element={<Request />} />
         <Route path="/settings" element={<Settings />} />
+
+        <Route path="/report/:id" element={<Report />} />
       </Route>
       <Route>
+        <Route path="/splash" element={<Splash />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/register2" element={<Register2 />} />
@@ -185,7 +191,7 @@ function App() {
       </Route>
     </Routes>
     <Toast />
-    </>
+    </div>
   );
 }
 

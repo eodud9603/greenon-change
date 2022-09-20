@@ -73,7 +73,7 @@ const Settings = () => {
       <Box>
         <Col>
           <Row>
-            <p>푸시 받기</p>
+            <p style={{color:'#fff'}}>푸시 받기</p>
             <SwitchBox>
               <Switch
                 active={input.push}
@@ -90,7 +90,7 @@ const Settings = () => {
             </SwitchBox>
           </Row>
           <Row>
-            <p>자동 로그인</p>
+            <p style={{color:'#fff'}}>자동 로그인</p>
             <SwitchBox>
               <Switch
                 active={input.auto_login}
@@ -109,22 +109,22 @@ const Settings = () => {
         </Col>
         <Col>
           <Row>
-            <p>이용약관</p>
+            <p style={{color:'#fff'}}>이용약관</p>
             <DepthIcon />
           </Row>
           <Row>
-            <p>개인정보 보호정책</p>
+            <p style={{color:'#fff'}}>개인정보 보호정책</p>
             <DepthIcon />
           </Row>
           <Row>
-            <p>오픈소스 라이선스</p>
+            <p style={{color:'#fff'}}>오픈소스 라이선스</p>
             <DepthIcon />
           </Row>
         </Col>
         <Col>
           <Row>
-            <p>버전 정보</p>
-            <p>1.1.1.0</p>
+            <p style={{color:'#fff'}}>버전 정보</p>
+            <p style={{color:'#fff'}}>1.1.1.0</p>
           </Row>
           <Row style={{ border: "none" }}>
             <p style={{ color: "red" }}>회원탈퇴</p>

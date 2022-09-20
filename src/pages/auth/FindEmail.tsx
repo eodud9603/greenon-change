@@ -20,27 +20,28 @@ const InputWrapper = styled.div`
 `;
 const RightButton = styled(Button)`
   flex: 1;
-  background: #e5f2f8;
+  background: #1ca5c7;
   font-size: 14px;
-  color: #007cba;
+  color: white;
 `;
 const VerifyText = styled.div`
-  color: red;
+  color: #eeff00;
   font-size: 14px;
 `;
 const FormHeader = styled.div`
   display: flex;
-  align-items: flex-end;
+  align-items: center;
   margin-bottom: 10px;
 
   label {
     font-size: 14px;
-    margin-right: 10px;
+    margin-right: 8px;
+    color: #b1cad6;
   }
 
   small {
-    font-size: 12px;
-    color: #8b8b8b;
+    font-size: 10px;
+    color: #b1cad6;
   }
 `;
 
@@ -75,10 +76,10 @@ const FindEmail = () => {
     apis.sendVerifyCode(inputs.phone).then(res => {
       if (res.status === 201) {
         setCodeEnabled(true);
-        
+
         let time = 3 * 60 - 1;
         renderTime(time);
-        
+
         intervalRef.current = setInterval(() => {
           time -= 1;
           renderTime(time);
@@ -97,7 +98,7 @@ const FindEmail = () => {
         setVerified(true);
         setToast({ open: true, message: '인증되었습니다.', type: 'success' });
         clearInterval(intervalRef.current);
-        
+
         apis.findEmail(inputs.phone).then(res => {
           if (res.status === 201) {
             setResult(res.data);
@@ -133,7 +134,8 @@ const FindEmail = () => {
         <InputWrapper>
           <Input
             type="tel"
-            style={{ flex: 2, marginRight: 10 }}
+            placeholder='휴대폰 번호를 입력해주세요'
+            style={{ flex: 2, marginRight: 10, backgroundColor: '#28555f', border: 'none' }}
             value={inputs.phone}
             onChange={e => setInputs({ ...inputs, phone: e.target.value })}
             disabled={codeEnabled || verified}
@@ -146,7 +148,8 @@ const FindEmail = () => {
         <InputWrapper>
           <Input
             type="tel"
-            style={{ flex: 2, marginRight: 10 }}
+            placeholder='인증번호 입력'
+            style={{ flex: 2, marginRight: 10, backgroundColor: '#28555f', border: 'none' }}
             value={code}
             onChange={e => setCode(e.target.value)}
             disabled={!codeEnabled || verified}
@@ -163,13 +166,16 @@ const FindEmail = () => {
           <Division />
           <ResultBox>
             {result.length ? <>
-              <p>고객님의 가입계정 목록입니다</p>
+              <p style={{ marginBottom: 20 }}>고객님의 가입계정 목록입니다</p>
               {result.map(r => <strong>{r}</strong>)}
-            </> : 
+            </> :
               <p>가입된 계정이 없습니다!<br/>다시 한 번 확인해주세요</p>
             }
           </ResultBox>
-          <SubmitButton onClick={() => navigate('/login')}>확인</SubmitButton>
+          <SubmitButton
+            onClick={() => navigate('/login')}
+            style={{ backgroundColor: '#1ca5c7'}}
+          >확인</SubmitButton>
         </>)
         }
       </AuthDynamicModal>
@@ -182,7 +188,8 @@ const ResultBox = styled.div`
   flex-direction: column;
   text-align: center;
   gap: 20px;
-  padding: 10px 0;
+  padding: 30px 0;
+  color: white;
 `;
 
 export default FindEmail;

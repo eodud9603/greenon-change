@@ -9,6 +9,8 @@ import CryptoJS from 'crypto-js';
 import { useSetRecoilState } from 'recoil';
 import UserState from "../../recoil/user";
 import useKakaoLogin from "../../hooks/useKakaoLogin";
+import { ReactComponent as KakaoLogin } from "../../static/icons/kakao.svg";
+import { ReactComponent as GoogleLogin } from "../../static/icons/google.svg";
 
 interface InputProps {
   email: string;
@@ -17,7 +19,7 @@ interface InputProps {
 
 const ErrorMessage = styled.p<{ show?: boolean }>`
   display: ${({ show }) => (show ? "block" : "none")};
-  color: red;
+  color: #eeff00;
   font-size: 12px;
 `;
 
@@ -69,46 +71,37 @@ const Login = () => {
   return (
     <AuthPageTemplate>
       <Container>
-        <img src={Logo} alt="greenon" style={{ marginBottom: 100 }} />
-        <Modal>
-          <ModalInner>
-            <form style={{ display: "flex", flexDirection: "column",/*  gap: 20 */ }}>
-              <div style={{ marginBottom: 20 }}>
-                  <TextInput
-                    type="email"
-                    label="이메일"
-                    onChange={onChangeInput}
-                    value={input.email}
-                  />
-              </div>
-              <div style={{ marginBottom: 20 }}>
-                <TextInput
-                  type="password"
-                  label="비밀번호"
-                  onChange={onChangeInput}
-                  value={input.password}
-                />
-                <ErrorMessage show={errorMessage !== ""}>
-                  {errorMessage}
-                </ErrorMessage>
-              </div>
-              <Button onClick={login}>로그인</Button>
-            </form>
-            <HorizontalBox>
-              <Link to="/find_email">이메일·비밀번호 찾기</Link>
-              <Link to="/register">회원가입</Link>
-            </HorizontalBox>
-            <Button
-              style={{ background: "#ffe812", color: "#000" }}
-              onClick={onClickKakaoLogin}
-            >
-              카카오톡으로 시작하기
-            </Button>
-            <Button style={{ background: "#000", color: "#fff" }}>
-              애플로 시작하기
-            </Button>
-          </ModalInner>
-        </Modal>
+        <img
+          src={Logo}
+          alt="greenon"
+          style={{ marginBottom: 50, width: 150 }}
+        />
+        <form
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            width: '100%',
+            maxWidth: 500,
+          }}>
+          <TextInput
+            type="email"
+            placeholder="이메일"
+            onChange={onChangeInput}
+            value={input.email}
+          />
+          <TextInput
+            type="password"
+            placeholder="비밀번호"
+            onChange={onChangeInput}
+            value={input.password}
+          />
+          <ErrorMessage show={errorMessage !== ""}>
+            {errorMessage}
+          </ErrorMessage>
+          <div style={{ marginTop: 30 }}>
+            <Button onClick={login}>로그인</Button>
+          </div>
+        </form>
       </Container>
     </AuthPageTemplate>
   );
@@ -119,7 +112,7 @@ const Container = styled.div`
   height: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
+  justify-content: center;
   align-items: center;
   /* gap: 100px; */
   padding: 0px 20px 20px 20px;

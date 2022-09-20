@@ -24,8 +24,8 @@ const Container = styled.div`
   align-items: center;
   justify-content: space-between;
   padding: 5px;
-  border: 1px solid #e5f2f8;
-  border-radius: 5px;
+  border: solid 1px #778d98;
+  border-radius: 10px;
   /* gap: 10px; */
   margin-bottom: 20px;
 `;
@@ -36,9 +36,9 @@ const Switch = styled(Link)<{ active: Boolean }>`
   display: flex;
   justify-content: center;
   align-items: center;
-  border-radius: 5px;
-  background: ${(props) => (props.active ? '#007cba' : '#fff')};
-  color: ${(props) => (props.active ? '#fff' : '#007cba')};
+  border-radius: 10px;
+  background: ${(props) => (props.active ? '#e5f2f8' : 'transparent')};
+  color: ${(props) => (props.active ? '#1ca5c7' : '#b1cad6')};
 `;
 
 export default PageSwitch;

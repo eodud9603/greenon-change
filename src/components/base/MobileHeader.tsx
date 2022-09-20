@@ -26,10 +26,18 @@ const FlexBox = styled.div<{ align?: string }>`
   }
 `;
 
+const MainSpace = styled.div`
+display: inline-flex;
+align-items: center;
+gap: 5px;
+`;
+
 const Space = styled.div`
-  display: inline-flex;
-  align-items: center;
-  gap: 5px;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+gap: 5px;
 `;
 
 export const Location = () => {
@@ -37,10 +45,10 @@ export const Location = () => {
   const { location } = useRecoilValue(AppState);
 
   return /* useObserver(() => */ (
-    <Space>
+    <MainSpace>
       <LocationIcon />
-      <p>{location}</p>
-    </Space>
+      <p style={{ fontSize: 12 }}>{location}</p>
+    </MainSpace>
   )/* ) */;
 };
 
@@ -51,7 +59,7 @@ export const Weather = () => {
   return (
     <Space>
       <SunnyIcon />
-      {<p>{particulate_matter[0]}</p>}
+      {<p style={{ fontSize: 10 }}>{particulate_matter[0]}</p>}
     </Space>
   );
 };
@@ -61,20 +69,21 @@ const MobileHeader = () => {
 
   return (
     <MobileHeaderBox>
-      <FlexBox>
+      <div style={{ width: '20%' }}>
         <img
           src={MobileLogo}
           alt="logo-greenon"
           style={{ display: "block", cursor: "pointer" }}
+          width={80}
           onClick={() => navigate("/")}
         />
-      </FlexBox>
+      </div>
       <FlexBox align="center">
         <Location />
       </FlexBox>
-      <FlexBox align="right">
+      <div style={{ width: '20%', display: 'flex', justifyContent: 'flex-end' }}>
         <Weather />
-      </FlexBox>
+      </div>
     </MobileHeaderBox>
   );
 };

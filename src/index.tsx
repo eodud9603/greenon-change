@@ -8,12 +8,16 @@ import { ThemeProvider } from "styled-components";
 import { RecoilRoot } from 'recoil';
 import theme from "./lib/theme";
 import { BrowserRouter } from "react-router-dom";
+import GlobalStyle from "./globalStyle";
 
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
       <CookiesProvider>
+        {/* @ts-ignore */}
         <ThemeProvider theme={theme}>
+          {/* @ts-ignore */}
+          <GlobalStyle />
           <RecoilRoot>
             <App />
           </RecoilRoot>

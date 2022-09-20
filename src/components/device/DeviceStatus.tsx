@@ -7,6 +7,15 @@ import AppState from "../../recoil/app";
 import DeviceState, { DeviceStatusType, DeviceType } from "../../recoil/device";
 import { UserType } from "../../recoil/user";
 
+import { ReactComponent as PowerInactive } from "../../static/icons/power-inactive.svg";
+import { ReactComponent as PowerActive } from "../../static/icons/power-active.svg";
+import { ReactComponent as AirQualityButtonInactive } from "../../static/icons/air-quality-button-inactive.svg";
+import { ReactComponent as AirQualityButtonActive } from "../../static/icons/air-quality-button-active.svg";
+import { ReactComponent as GermInactive } from "../../static/icons/germ-inactive.svg";
+import { ReactComponent as GermActive } from "../../static/icons/germ-active.svg";
+import { ReactComponent as WindInactive } from "../../static/icons/wind-inactive.svg";
+import { ReactComponent as WindActive } from "../../static/icons/wind-active.svg";
+
 const Box = styled.div<{ align: "row" | "column" }>`
   display: flex;
   flex-direction: ${(props) => props.align};
@@ -18,7 +27,7 @@ const Box = styled.div<{ align: "row" | "column" }>`
   label {
     flex: ${(props) => (props.align === "row" ? 1.5 : 1)};
     font-size: 16px;
-    color: #000;
+    color: #fff;
     margin-bottom: ${(props) => (props.align === "row" ? 0 : "10px")};
   }
 
@@ -27,6 +36,27 @@ const Box = styled.div<{ align: "row" | "column" }>`
     flex: ${(props) => (props.align === "row" ? 2.5 : 1)};
     display: flex;
   }
+`;
+
+const Controller = styled.div`
+padding: 10px 36px;
+border-radius: 10px;
+box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.15);
+background-color: white;
+font-size: 10px;
+display: flex;
+justify-content: space-between;
+align-items: center;
+margin-top: 45px;
+`;
+
+const ControllerItem = styled.div`
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+gap: 4px;
+cursor: pointer;
 `;
 
 const DeviceStatus = ({ /* data, */deviceId, user }: { /* data: DeviceType, */deviceId: string, user: UserType | null }) => {
@@ -100,6 +130,24 @@ const DeviceStatus = ({ /* data, */deviceId, user }: { /* data: DeviceType, */de
 
   return (
     <div>
+      <Controller>
+        <ControllerItem>
+          { true ? <PowerActive /> : <PowerInactive /> }
+          <div style={{}}>전원</div>
+        </ControllerItem>
+        <ControllerItem>
+          { true ? <AirQualityButtonActive /> : <AirQualityButtonInactive /> }
+          <div style={{}}>공기질</div>
+        </ControllerItem>
+        <ControllerItem>
+          { false ? <GermActive /> : <GermInactive /> }
+          <div style={{ color: '#c2c2c2' }}>제균</div>
+        </ControllerItem>
+        <ControllerItem>
+          { false ? <WindActive /> : <WindInactive /> }
+          <div style={{ color: '#c2c2c2' }}>풍량</div>
+        </ControllerItem>
+      </Controller>
       <Box align="row">
         <label>전원</label>
         <div className="option-list">

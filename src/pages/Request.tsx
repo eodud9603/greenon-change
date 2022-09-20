@@ -69,7 +69,7 @@ const Request = () => {
     fd.append('content', inputs.content);
     if (imgRef.current)
       fd.append('image', imgRef.current);
-    
+
     apis.createRequest(fd).then((res) => {
       if (res.status === 201 && res.data.result === true) {
         setToast({ open: true, message: '성공적으로 작성되었습니다.', type: 'success' });
@@ -157,6 +157,7 @@ const Request = () => {
             background: submit ? "#007cba" : "rgba(0, 0, 0, 0.12)",
             fontSize: 16,
             boxShadow: "none",
+            color:'#fff'
           }}
           disabled={!submit}
           onClick={onSubmit}

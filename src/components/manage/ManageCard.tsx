@@ -14,11 +14,11 @@ import { ReactComponent as AirPuriIcon } from "../../static/icons/icon-airpuri.s
 const ManageCardBox = styled(Link)`
   display: flex;
   flex-direction: column;
-  background: #fff;
-  border-radius: 20px;
-  box-shadow: 0px 5px 10px 2px rgba(0, 124, 186, 0.2);
-  padding: 20px;
-  gap: 10px;
+  background: #28555f;
+  border-radius: 10px;
+  box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+  padding: 14px;
+  gap: 20px;
 `;
 
 const CardHeader = styled.div`
@@ -32,18 +32,30 @@ const NameBox = styled.h5`
   overflow: hidden;
   text-overflow: ellipsis;
   width: 150px;
+  color: white;
+  font-size: 16px;
+  margin-bottom: 5px;
+`;
+
+const SerialBox = styled.h5`
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 150px;
+  color: #eeff00;
+  font-size: 12px;
 `;
 
 const InfoBox = styled.div`
   display: flex;
   align-items: center;
   gap: 10px;
-  color: #007cba;
+  color: #a6d4e9;
 `;
 
 const CardBottom = styled.div`
   display: flex;
-  gap: 20px;
+  gap: 14px;
 `;
 
 const Button = styled.div<{ background: string; color: string }>`
@@ -85,10 +97,15 @@ const ManageCard = ({ data }: { data: DeviceType }) => {
     // device.deleteDevice(data.id);
   };
 
+  console.log('card data', data);
+
   return (
     <ManageCardBox to={`/devices/${data.id}`}>
       <CardHeader>
-        <NameBox>{data.name}</NameBox>
+        <div>
+          <NameBox>{data.name}</NameBox>
+          <SerialBox>{data.serial}</SerialBox>
+        </div>
         <InfoBox>
           <div
             style={{
@@ -97,17 +114,17 @@ const ManageCard = ({ data }: { data: DeviceType }) => {
               textAlign: "right",
             }}
           >
-            <small>{data.serial}</small>
-            <small>{data.type}</small>
+            <small style={{ fontSize: 14 }}>{data.serial}</small>
+            <small style={{ fontSize: 14 }}>{data.type}</small>
           </div>
           <AirPuriIcon />
         </InfoBox>
       </CardHeader>
       <CardBottom>
-        <Button background="#e5f2f8" color="#007cba" onClick={handleEdit}>
+        <Button background="#1ca5c7" color="white" onClick={handleEdit}>
           정보 수정
         </Button>
-        <Button background="#ffebf3" color="#ff0062" onClick={handleOnDelete}>
+        <Button background="#e5f2f8" color="#1e2225" onClick={handleOnDelete}>
           삭제
         </Button>
       </CardBottom>

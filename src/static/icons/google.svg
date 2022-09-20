@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 50 50">
+    <g data-name="그룹 3471">
+        <g data-name="그룹 3469">
+            <g data-name="사각형 27" style="fill:#fff;stroke:#dedede">
+                <rect width="50" height="50" rx="15" style="stroke:none"/>
+                <rect x=".5" y=".5" width="49" height="49" rx="14.5" style="fill:none"/>
+            </g>
+            <path d="M19.871 9.68a13.012 13.012 0 0 0-.206-2.316H9v4.38h6.095a5.209 5.209 0 0 1-2.26 3.418V18h3.66a11.044 11.044 0 0 0 3.376-8.32z" transform="translate(16.999 15.902)" style="fill-rule:evenodd;fill:#4285f4"/>
+            <path data-name="Shape" d="M11.077 19.883a10.811 10.811 0 0 0 7.495-2.744l-3.66-2.839a6.832 6.832 0 0 1-10.171-3.59H.957v2.934a11.32 11.32 0 0 0 10.12 6.239z" transform="translate(14.922 16.766)" style="fill:#34a853;fill-rule:evenodd"/>
+            <path data-name="Shape" d="M4.988 12.2a6.695 6.695 0 0 1 0-4.3V4.958H1.2a11.339 11.339 0 0 0 0 10.171L4.988 12.2z" transform="translate(14.675 15.28)" style="fill:#fbbc05;fill-rule:evenodd"/>
+            <path data-name="Shape" d="M11.077 4.5a6.118 6.118 0 0 1 4.329 1.7l3.248-3.248A10.883 10.883 0 0 0 11.077 0 11.32 11.32 0 0 0 .957 6.239l3.784 2.934A6.749 6.749 0 0 1 11.077 4.5z" transform="translate(14.922 14)" style="fill:#ea4335;fill-rule:evenodd"/>
+            <path data-name="Shape" d="M0 0h22.649v22.649H0z" style="fill:none;fill-rule:evenodd" transform="translate(14.675 14)"/>
+        </g>
+    </g>
+</svg>

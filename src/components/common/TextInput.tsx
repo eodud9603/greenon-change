@@ -1,24 +1,25 @@
 import React from "react";
 import styled from "styled-components";
 import { InputTemplate } from ".";
+import {createStyles} from "@mui/material";
 
 interface TextInputProps {
   name?: string;
   type: string;
-  label: string;
+  label?: string;
   background?: string;
   right?: React.ReactNode;
   onChange?: (e: any) => void;
   value?: any;
   error?: string;
   disabled?: boolean;
-  defaultValue?: string | number | readonly string[]
+  defaultValue?: string | number | readonly string[];
+  placeholder?: string;
 }
 
 const InputBox = styled.div<{ background?: string }>`
   border-radius: 6px;
-  border: ${({ background }) => (background ? "none" : "1px solid #b1cad6")};
-  background: ${({ background }) => (background ? background : "#fff")};
+  background: ${({ background }) => (background ? background : "#28555f")};
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -37,6 +38,11 @@ const Input = styled.input`
   &:focus-visible {
     outline: none;
   }
+
+  ::placeholder {
+    color: #778d98;
+    font-size: 14px;
+  }
 `;
 
 const TextInput: React.FC<TextInputProps> = ({
@@ -49,12 +55,22 @@ const TextInput: React.FC<TextInputProps> = ({
   value,
   error,
   disabled = false,
-  defaultValue
+  defaultValue,
+  placeholder,
 }) => {
   return (
     <InputTemplate label={label}>
       <InputBox background={background}>
-        <Input defaultValue={defaultValue} disabled={disabled} name={name} type={type} onChange={onChange} value={value} autoComplete="off" />
+        <Input
+          defaultValue={defaultValue}
+          disabled={disabled}
+          name={name}
+          type={type}
+          onChange={onChange}
+          value={value}
+          autoComplete="off"
+          placeholder={placeholder}
+        />
         {right}
       </InputBox>
       <div style={{ fontSize: 14, color: "red" }}>{error}</div>

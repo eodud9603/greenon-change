@@ -6,6 +6,7 @@ import { Outlet } from "react-router-dom";
 // import useStore from "../../stores";
 // import { runInAction } from "mobx";
 // import { useObserver } from "mobx-react";
+import BackgroundImage from '../../static/images/mobile-background.png';
 
 const MainLayoutBox = styled.div`
   width: 100%;
@@ -13,8 +14,11 @@ const MainLayoutBox = styled.div`
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  background: #007cba;
   overflow: hidden;
+
+  overflow: hidden;
+  background: url(${BackgroundImage}) no-repeat center center / cover;
+  position: relative;
 `;
 
 const MainBox = styled.div`
@@ -22,7 +26,7 @@ const MainBox = styled.div`
   display: flex;
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
-  background: #fff;
+  background: transparent;
   border-bottom: 1px solid #e5f2f8;
   flex-grow: 1;
   overflow: hidden;
@@ -59,7 +63,7 @@ const MainLayout = () => {
     return () => window.removeEventListener("resize", handleResize);
   }, [/* device, etc, user */]);
 
-  return /* useObserver(() => */ (
+  return (
     <MainLayoutBox>
       {innerWidth < 1024 ? <MobileHeader /> : <Header />}
       <MainBox>
@@ -73,7 +77,7 @@ const MainLayout = () => {
       <ResponsiveModal />
       {/* <Toast /> */}
     </MainLayoutBox>
-  )/* ); */
+  )
 };
 
 export default MainLayout;

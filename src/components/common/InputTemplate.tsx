@@ -14,6 +14,7 @@ const InputTemplateBox = styled.div`
 
 const InputLabel = styled.label`
   font-size: 14px;
+  color: #b1cad6;
 `;
 
 const InputTemplate: React.FC<InputTemplateProps> = ({ label, children }) => {

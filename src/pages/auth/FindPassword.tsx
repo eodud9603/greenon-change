@@ -19,17 +19,18 @@ import CryptoJS from 'crypto-js';
 
 const FormHeader = styled.div`
   display: flex;
-  align-items: flex-end;
-  margin-bottom: 10px;
+  align-items: center;
+  margin: 10px 0;
 
   label {
     font-size: 14px;
-    margin-right: 10px;
+    margin-right: 8px;
+    color: #b1cad6;
   }
 
   small {
     font-size: 12px;
-    color: #8b8b8b;
+    color: #b1cad6;
   }
 `;
 const InputWrapper = styled.div`
@@ -38,12 +39,12 @@ const InputWrapper = styled.div`
 `;
 const RightButton = styled(Button)`
   flex: 1;
-  background: #e5f2f8;
+  background: #1ca5c7;
   font-size: 14px;
-  color: #007cba;
+  color: white;
 `;
 const VerifyText = styled.div`
-  color: red;
+  color: #eeff00;
   font-size: 14px;
 `;
 
@@ -121,10 +122,10 @@ const FindPassword = () => {
     apis.sendVerifyCode(inputs.phone).then(res => {
       if (res.status === 201) {
         setCodeEnabled(true);
-        
+
         let time = 3 * 60 - 1;
         renderTime(time);
-        
+
         intervalRef.current = setInterval(() => {
           time -= 1;
           renderTime(time);
@@ -165,7 +166,13 @@ const FindPassword = () => {
     <AuthPageTemplate>
       <AuthDynamicModal headerTitle="이메일·비밀번호 찾기">
         <PageSwitch />
-        <TextInput type="email" label="이메일" value={inputs.email} onChange={e => setInputs({ ...inputs, email: e.target.value })} />
+        <TextInput
+          type="email"
+          label="이메일"
+          placeholder='가입했던 아이디를 입력해주세요'
+          value={inputs.email}
+          onChange={e => setInputs({ ...inputs, email: e.target.value })}
+        />
         {/* <TelInput /> */}
         <FormHeader>
           <label>휴대폰 인증</label>
@@ -174,7 +181,8 @@ const FindPassword = () => {
         <InputWrapper>
           <Input
             type="tel"
-            style={{ flex: 2, marginRight: 10 }}
+            placeholder='휴대폰 번호를 입력해주세요'
+            style={{ flex: 2, marginRight: 10, backgroundColor: '#28555f', border: 'none' }}
             value={inputs.phone}
             onChange={e => setInputs({ ...inputs, phone: e.target.value })}
             disabled={codeEnabled || verified}
@@ -187,7 +195,8 @@ const FindPassword = () => {
         <InputWrapper>
           <Input
             type="tel"
-            style={{ flex: 2, marginRight: 10 }}
+            style={{ flex: 2, marginRight: 10, backgroundColor: '#28555f', border: 'none' }}
+            placeholder='인증번호 입력'
             value={code}
             onChange={e => setCode(e.target.value)}
             disabled={!codeEnabled || verified}
@@ -199,10 +208,25 @@ const FindPassword = () => {
         </InputWrapper>
         {errors.phone && <VerifyText>{errors.phone}</VerifyText>}
         {codeEnabled && !verified && <VerifyText>인증번호 만료까지 <span className="timer-text"></span></VerifyText>}
-        <Division />
-        <TextInput type="password" label="새 비밀번호 입력" value={inputs.password} onChange={e => setInputs({ ...inputs, password: e.target.value })} />
-        <TextInput type="password" label="새 비밀번호 확인" value={inputs.password2} onChange={e => setInputs({ ...inputs, password2: e.target.value })} />
-        <SubmitButton onClick={onSubmit}>확인</SubmitButton>
+        <Division style={{ margin: '20px 0' }} />
+        <TextInput
+          type="password"
+          label="새 비밀번호 입력"
+          placeholder='8~16자, 영문+숫자+특수문자 조합'
+          value={inputs.password}
+          onChange={e => setInputs({ ...inputs, password: e.target.value })}
+        />
+        <TextInput
+          type="password"
+          label="새 비밀번호 확인"
+          placeholder='8~16자, 영문+숫자+특수문자 조합'
+          value={inputs.password2}
+          onChange={e => setInputs({ ...inputs, password2: e.target.value })}
+        />
+        <SubmitButton
+          onClick={onSubmit}
+          style={{ backgroundColor: '#1ca5c7' }}
+        >확인</SubmitButton>
       </AuthDynamicModal>
     </AuthPageTemplate>
   );

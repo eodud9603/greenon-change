@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import hexRgb from 'hex-rgb';
-import { CircularProgressbar } from 'react-circular-progressbar';
+import { buildStyles, CircularProgressbar } from 'react-circular-progressbar';
 
 interface CircularProgressProps {
   title: string;
@@ -14,6 +14,7 @@ interface CircularProgressProps {
 const Container = styled.div`
   text-align: center;
   font-size: 12px;
+  width: 100%;
 
   label {
     display: block;
@@ -24,12 +25,12 @@ const Container = styled.div`
 
 const ProgressWrapper = styled.div<{ rgbObj: any }>`
   flex: 1;
-  width: 108px;
-  height: 108px;
+  width: 100%;
+  height: 100%;
   border-radius: 50%;
   position: relative;
-  background: ${({ rgbObj }) =>
-    `radial-gradient(#fff, rgba(${rgbObj.red},${rgbObj.green},${rgbObj.blue},0.2))`};
+  /* background: ${({ rgbObj }) =>
+    `radial-gradient(#fff, rgba(${rgbObj.red},${rgbObj.green},${rgbObj.blue},0.2))`}; */
 `;
 
 const TextWrapper = styled.div<{ color: string }>`
@@ -58,19 +59,24 @@ const CircularProgress = ({
 
   return (
     <Container color={color} onClick={onClick}>
-      <label>{title}</label>
       <ProgressWrapper rgbObj={rgbObj}>
         <CircularProgressbar
           value={progress}
-          strokeWidth={5}
-          styles={{
-            path: { stroke: color, strokeLinecap: 'round' },
-            text: { whiteSpace: 'pre-wrap' },
-          }}
+          strokeWidth={8}
+          circleRatio={0.9}
+          styles={buildStyles({
+            // path: { stroke: color, strokeLinecap: 'round' },
+            // text: { whiteSpace: 'pre-wrap' },
+            rotation: 0.55,
+            strokeLinecap: "butt",
+            trailColor: "#778d98",
+            pathColor: `${color}`,
+          })}
         />
         <TextWrapper color={color}>
-          <strong>{progress.toString()}</strong>
-          <p style={{fontSize:14}}>{text}</p>
+          <label style={{ fontSize: 12, color: 'white' }}>{title}</label>
+          <strong style={{ fontSize: 46 }}>{progress.toString()}</strong>
+          <p style={{ fontSize:12 }}>{text}</p>
         </TextWrapper>
       </ProgressWrapper>
     </Container>

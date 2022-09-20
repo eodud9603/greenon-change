@@ -38,7 +38,7 @@ const Register: React.FC = () => {
   return (
     <AuthPageTemplate>
       <AuthDynamicModal headerTitle="약관 동의">
-        <h3 style={{ fontSize: 16, fontWeight: 500, textAlign: "center" }}>
+        <h3 style={{ fontSize: 16, fontWeight: 500, textAlign: "center", color: 'white' }}>
           서비스 이용을 위한 약관에 동의해주시기 바립니다.
         </h3>
         <FormWrapper style={{ marginBottom: 20 }}>
@@ -92,6 +92,7 @@ const Register: React.FC = () => {
         <ColoredButton
           onClick={onSubmit}
           disabled={!Object.values(checkInputs).every((val) => val)}
+          style={{ backgroundColor: '#1ca5c7' }}
         >
           다음
         </ColoredButton>
@@ -109,7 +110,8 @@ const FormWrapper = styled.div`
   align-items: center;
   font-size: 14px;
   border-radius: 10px;
-  background-color: #e5f2f8;
+  background-color: #28555f;
+  color: #778d98;
 `;
 
 const CheckInput = styled.div`

@@ -8,6 +8,10 @@ const Input = styled.input`
   color: #333333;
   padding: 20px;
   font-size: 16px;
+
+  ::placeholder {
+    color: #778d98;
+  }
 `;
 
 export default Input;

@@ -3,27 +3,26 @@ import styled from 'styled-components';
 import { BaseHeader } from '../common';
 
 interface AuthDynamicModalProps {
-  headerTitle: string;
-  children?: React.ReactNode;
+    headerTitle: string;
+    children?: React.ReactNode;
 }
 
 const AuthDynamicModal: React.FC<AuthDynamicModalProps> = ({
-  headerTitle,
-  children,
-}) => {
-  return (
-    <DynamicBox>
-      <BaseHeader headerTitle={headerTitle} />
-      <ModalContent>{children}</ModalContent>
-    </DynamicBox>
-  );
+                                                               headerTitle,
+                                                               children,
+                                                           }) => {
+    return (
+        <DynamicBox>
+            <BaseHeader headerTitle={headerTitle} />
+            <ModalContent>{children}</ModalContent>
+        </DynamicBox>
+    );
 };
 
 const DynamicBox = styled.div`
   display: flex;
   flex-direction: column;
   height: 100%;
-  background: #fff;
 
   @media (min-width: 540px) {
     display: inline-block;

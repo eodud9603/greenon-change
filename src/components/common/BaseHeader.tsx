@@ -25,7 +25,7 @@ const Container = styled.div`
   font-size: 16px;
   color: #333333;
   background: #fff;
-  height: 50px;
+  flex: 0 0 50px;
   padding: 0 10px;
   box-shadow: 0px 0px 5px 5px rgba(0, 0, 0, 0.05);
 `;

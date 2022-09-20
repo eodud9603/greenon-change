@@ -56,12 +56,12 @@ const Container = styled.div`
     align-items: center;
     justify-content: center;
     border-radius: 10px;
-    border: 2px solid #e5f2f8;
-    color: #004f76;
+    color: white;
     gap: 10px;
+    background-color: #28555f;
 
     p {
-      font-size: 14px;
+      font-size: 12px;
     }
   }
 
@@ -78,7 +78,7 @@ const Container = styled.div`
   .box {
     width: 100%;
     height: 200px;
-    background: lightgray;
+    background: #28555f;
     border-radius: 10px;
 
     @media (min-width: 1024px) {
@@ -98,7 +98,10 @@ const MyPageContainer = () => {
         <div className="info-wrapper">
           <div className="info-left">
             <div className="profile-img" />
-            <p style={{ fontSize: 16 }}>{user?.email}</p>
+            <div>
+              <p style={{ fontSize: 14, color: 'white' }}>{user?.name}</p>
+              <p style={{ fontSize: 14, color: '#a6d4e9' }}>{user?.email}</p>
+            </div>
           </div>
           <ProfileIcon
             onClick={() => navigate("/profile_edit")}
@@ -108,10 +111,6 @@ const MyPageContainer = () => {
         <Division />
         <div className="flex-box">
           <div className="tab-grid">
-            <Link to="/company" className="tab">
-              <Icon1 />
-              <p>회사 소개</p>
-            </Link>
             <Link to="/products" className="tab">
               <Icon2 />
               <p>제품 소개</p>
@@ -127,6 +126,10 @@ const MyPageContainer = () => {
             <Link to="/request" className="tab">
               <Icon5 />
               <p>문의하기</p>
+            </Link>
+            <Link to="/company" className="tab">
+              <Icon1 />
+              <p>회사 소개</p>
             </Link>
             <Link to="/settings" className="tab">
               <Icon6 />
