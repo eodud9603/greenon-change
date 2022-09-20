@@ -130,9 +130,9 @@ const DeviceContainer = () => {
       <Container>
         <Box>
           <ButtonGroup>
-            <Link to={`/devices/${targetDevice.id}`}>
+            <Link to={`/`}>
               <Button
-                active={location.pathname === `/devices/${targetDevice.id}`}
+                active={false}
               >
                 홈
               </Button>
@@ -152,11 +152,13 @@ const DeviceContainer = () => {
               </Button>
             </Link>
             {/* TODO: 제어버튼은 일단 onPress는 비어있게 작업하기로 함 */}
-            <Button
-              active={false}
-            >
-              제어
-            </Button>
+            <Link to={`/devices/${targetDevice.id}`}>
+              <Button
+                  active={location.pathname === `/devices/${targetDevice.id}`}
+              >
+                제어
+              </Button>
+            </Link>
             {/* TODO: 알림 기능은 아직 미완 */}
             <Link to={`/devices/${targetDevice.id}`}>
               <Button

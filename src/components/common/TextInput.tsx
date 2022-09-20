@@ -70,6 +70,7 @@ const TextInput: React.FC<TextInputProps> = ({
           value={value}
           autoComplete="off"
           placeholder={placeholder}
+          style={{color:'#fff'}}
         />
         {right}
       </InputBox>
