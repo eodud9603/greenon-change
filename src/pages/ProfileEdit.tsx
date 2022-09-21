@@ -33,7 +33,7 @@ const ProfileEdit = () => {
   const user = useRecoilValue(UserState);
   const navigate = useNavigate();
   const toast = useSetRecoilState(ToastState);
-  
+
   const [email, setEmail] = useState<string>(user.email);
   const [name, setName] = useState<string>(user.name);
   const [phone, setPhone] = useState<string>(user.phone);
@@ -41,7 +41,7 @@ const ProfileEdit = () => {
   const handleClickConfirm = () => {
     if (!phone.match(/^[0-9]{8,11}$/))
       return toast({ open: true, message: '전화번호는 숫자 8 ~ 11자리로만 입력 가능합니다.', type: 'error' });
-    
+
     apis.updateUserInfo(user.id, { phone }).then(({ status, data }) => {
       if (status === 200 && data.affected) {
         toast({ open: true, message: '변경사항이 저장되었습니다.', type: 'success' });
@@ -57,21 +57,21 @@ const ProfileEdit = () => {
         <TextInput
           type="email"
           label="이메일"
-          background="#f4f4f4"
+          background="#28555F"
           defaultValue={email}
           disabled
         />
         <TextInput
           type="text"
           label="이름"
-          background="#f4f4f4"
+          background="#28555F"
           defaultValue={name}
           disabled
         />
         <TextInput
           type="text"
           label="연락처"
-          background="#e5f2f8"
+          background="#28555F"
           value={phone}
           onChange={e => setPhone(e.target.value)}
           right={<span style={{ fontSize: 14, color: "#007cba" }} onClick={handleClickConfirm}>수정</span>}
